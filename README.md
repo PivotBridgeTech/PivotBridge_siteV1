@@ -69,6 +69,18 @@ Fill SMTP_HOST / SMTP_PORT / SMTP_USER / SMTP_PASSWORD / NOTIFY_EMAIL in
 backend/.env. Gmail: use an App Password, host smtp.gmail.com, port 587.
 Mail failures never lose leads — they're already in the database.
 
+## AI chat assistant (optional)
+
+Set ANTHROPIC_API_KEY in backend/.env to enable the floating chat widget.
+It answers visitor questions grounded in the site's services/process/FAQ
+content (system prompt lives in backend/app/chat.py — keep it in sync with
+frontend/src/data/content.jsx) and steers visitors to the contact form.
+The key never reaches the browser; the frontend talks only to /api/chat.
+Rate limited to 30 messages per IP per hour. Leave the key blank to
+disable — the widget shows a friendly fallback pointing at the form.
+Model is set in backend/app/chat.py (claude-opus-4-8; switch to
+claude-haiku-4-5 there if you want cheaper, faster replies).
+
 ## Spam protection (built in)
 
 - Honeypot field: hidden input bots fill and humans never see; those

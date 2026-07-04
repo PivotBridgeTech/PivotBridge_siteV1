@@ -1,6 +1,4 @@
 import secrets
-import time
-from collections import defaultdict
 
 from fastapi import (
     BackgroundTasks, Depends, FastAPI, Header, HTTPException, Query, Request,
@@ -9,9 +7,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 from . import models
+from .chat import router as chat_router
 from .config import settings
 from .database import Base, engine, get_db
 from .email_utils import notify_new_lead
+from .ratelimit import RateLimiter
 from .schemas import LeadCreate, LeadOut
 
 Base.metadata.create_all(bind=engine)
@@ -25,35 +25,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(chat_router)
+
 # The key shipped in .env.example. If it's still in use, the leads endpoint
 # stays closed — otherwise anyone who read the repo could download your leads.
 DEFAULT_ADMIN_KEY = "change-me-to-a-long-random-string"
 
-# Naive in-memory rate limit: 5 submissions per IP per hour.
-# Enough to deter drive-by spam on a small site; swap for Redis if you scale.
-# NOTE: behind a reverse proxy, run uvicorn with --proxy-headers (see README)
-# or every visitor shares the proxy's IP and one bucket.
-_hits: dict[str, list[float]] = defaultdict(list)
-RATE_LIMIT = 5
-RATE_WINDOW = 3600
-_SWEEP_EVERY = 1000
-_calls = 0
-
-
-def _rate_limited(ip: str) -> bool:
-    global _calls
-    now = time.time()
-    _calls += 1
-    if _calls % _SWEEP_EVERY == 0:
-        # Drop IPs whose window fully expired so the dict can't grow forever.
-        stale = [k for k, v in _hits.items() if not v or now - v[-1] >= RATE_WINDOW]
-        for k in stale:
-            del _hits[k]
-    _hits[ip] = [t for t in _hits[ip] if now - t < RATE_WINDOW]
-    if len(_hits[ip]) >= RATE_LIMIT:
-        return True
-    _hits[ip].append(now)
-    return False
+# 5 contact-form submissions per IP per hour.
+_contact_limiter = RateLimiter(limit=5, window=3600)
 
 
 @app.get("/api/health")
@@ -73,7 +52,7 @@ def create_lead(
         return {"ok": True}
 
     ip = request.client.host if request.client else "unknown"
-    if _rate_limited(ip):
+    if _contact_limiter.hit(ip):
         raise HTTPException(status_code=429, detail="Too many submissions. Try again later.")
 
     row = models.Lead(

@@ -10,6 +10,8 @@ class Settings(BaseSettings):
     smtp_user: str = ""
     smtp_password: str = ""
     notify_email: str = ""
+    # Enables the /api/chat assistant when set; chat is disabled when empty.
+    anthropic_api_key: str = ""
 
     class Config:
         env_file = ".env"
