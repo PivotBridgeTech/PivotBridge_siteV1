@@ -11,7 +11,7 @@ export const SERVICES = [
     title: "AI that earns its keep",
     short: "Custom AI integrations, LLM workflows, and intelligent business agents — scoped to a real ROI, not a demo.",
     heroLine: "AI scoped to a number, not a novelty.",
-    intro: "Most SMBs don't need 'an AI strategy' — they need three specific tasks taken off a human's plate. We find those tasks, build the system that handles them, and measure the hours and dollars it returns.",
+    intro: "Most businesses don't need 'an AI strategy' — they need three specific tasks taken off a human's plate. We find those tasks, build the system that handles them, and measure the hours and dollars it returns.",
     offerings: [
       { name: "Custom AI integrations", body: "LLMs wired into the tools you already run — your CRM, inbox, documents, and databases — so answers and drafts appear where work actually happens." },
       { name: "Intelligent business agents", body: "Agents that triage inbound leads, draft responses, summarize calls, and prepare reports — with a human approving anything that leaves the building." },
@@ -130,9 +130,59 @@ export const FAQS = [
 ];
 
 export const POSTS = [
-  { tag: "CLOUD", title: "What cloud migration actually costs an SMB — and what makes it cheaper", excerpt: "The real line items behind a migration, the ones providers don't put on the pricing page, and the three decisions that cut the bill the most." },
+  { tag: "CLOUD", title: "What cloud migration actually costs a small business — and what makes it cheaper", excerpt: "The real line items behind a migration, the ones providers don't put on the pricing page, and the three decisions that cut the bill the most." },
   { tag: "AUTOMATION", title: "Five signs your business is ready for automation", excerpt: "You don't need to be 'a tech company.' If any of these five patterns shows up in your week, automation will pay for itself." },
-  { tag: "AI", title: "AI for small businesses: what's real, what's hype", excerpt: "A plain-language guide to the AI use cases that reliably return money for SMBs — and the ones that only demo well." },
+  { tag: "AI", title: "AI for small businesses: what's real, what's hype", excerpt: "A plain-language guide to the AI use cases that reliably return money for small businesses — and the ones that only demo well." },
+];
+
+// ─── About page: mission & leadership statements ───────────────────────────
+// MISSION and Suleyman’s entry are real. The other two people (Jordan, Maya)
+// are PLACEHOLDERS — replace names, roles, quotes, and bios before launch.
+export const MISSION = {
+  eyebrow: "Why we exist",
+  // The `highlight` phrase renders in blue inside the headline.
+  lead: "Small and medium businesses shouldn’t have to choose between ",
+  highlight: "fighting their tools",
+  rest: " and growing their company.",
+  body:
+    "We take technology off your plate — the custom apps, the AI, the automations, the servers — and give you back the time, money, and peace of mind it was costing you, so you can focus on running the business only you can run.",
+  statementLabel: "Our mission",
+  statement:
+    "Pivot Bridge Technology designs, builds, and runs the custom software, AI tools, and automations that give small and medium businesses the capabilities of companies ten times their size — explained in plain language, owned by you outright, and only built when it returns more than it costs.",
+};
+
+export const TEAM_STATEMENTS = [
+  {
+    initials: "SA",
+    name: "Suleyman Abdirahman",
+    role: "Co-founder",
+    gradient: ["#2E6647", "#234E36"],
+    statement:
+      "I founded Pivot Bridge on a simple belief: every business, regardless of size, deserves access to enterprise-grade technology that drives real results. I work directly with clients to understand their challenges and translate them into solutions — software, AI, or automation — that deliver measurable value.",
+    bio:
+      "Suleyman leads business strategy and client partnerships while supporting technical delivery. He brings a rare blend of business acumen and engineering depth to every engagement — from architecting enterprise AI and data systems to managing large-scale technology programs that cut complexity through automation. He holds bachelor’s degrees in Computer Engineering and Economics, with a Master’s in Computer Science in progress at Georgia Tech.",
+  },
+  {
+    initials: "YB",
+    name: "Yashoda Bokam",
+    role: "Co-founder",
+    gradient: ["#3E5C4B", "#1C2B22"],
+    statement:
+      "Technology only matters if it moves the business forward — that's the test I apply to every system we design. My job is to take what's technically impressive and make it practically useful: turning enterprise data platforms and intelligent automation into tools that produce measurable outcomes, not just technical wins.",
+    bio:
+      "Yashoda drives product vision and technical strategy at Pivot Bridge. With over 5 years of IT product management experience, he's passionate about helping organizations navigate complex technological landscapes to unlock new growth and efficiency. He holds a Master's in Technology Management from the University of Illinois Urbana-Champaign and a Bachelor's in Mechanical Engineering. Across his career he's built a track record of solving complex engineering and business-domain challenges, drawing on deep expertise in IT, advanced AI architectures, data science, and software development to turn highly technical systems — from enterprise data platforms to intelligent automation — into practical, scalable business applications.",
+  },
+  {
+    // PLACEHOLDER person — replace before launch
+    initials: "MO",
+    name: "Maya Okafor",
+    role: "Head of Engineering",
+    gradient: ["#6FA383", "#2E6647"],
+    statement:
+      "’Built to outlast us’ isn’t a slogan to me — it’s the standard every code review is held to. Every system we ship has to be one a competent stranger could maintain from the documentation alone. If it needs us around to survive, I haven’t finished the job.",
+    bio:
+      "Maya sets the engineering bar across every build — architecture, code review, and the documentation standard that makes client ownership real. (Placeholder bio.)",
+  },
 ];
 
 // Placeholder contact details — replace before launch

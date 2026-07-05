@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Calendar } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { CONTACT, FAQS } from "../data/content.jsx";
 import { Eyebrow, PageHero } from "../components/Shared.jsx";
 import ContactForm from "../components/ContactForm.jsx";
@@ -20,26 +20,19 @@ export default function Contact() {
             <div className="card-static rounded-lg p-6 md:p-8">
               <h3 className="f-display font-bold text-lg">Reach us directly</h3>
               <div className="flex flex-col gap-3 mt-4 text-sm c-steel">
-                <p className="flex items-center gap-2.5"><Mail size={17} className="c-blue" /> <a href={`mailto:${CONTACT.email}`} className="no-underline hover:underline" style={{ color: "inherit" }}>{CONTACT.email}</a></p>
-                <p className="flex items-center gap-2.5"><Phone size={17} className="c-blue" /> <a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`} className="no-underline hover:underline" style={{ color: "inherit" }}>{CONTACT.phone}</a></p>
-                <p className="flex items-center gap-2.5"><MapPin size={17} className="c-blue" /> {CONTACT.base}</p>
+                <p className="flex items-center gap-2.5"><Mail size={17} className="c-pine" /> <a href={`mailto:${CONTACT.email}`} className="no-underline hover:underline" style={{ color: "inherit" }}>{CONTACT.email}</a></p>
+                <p className="flex items-center gap-2.5"><Phone size={17} className="c-pine" /> <a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`} className="no-underline hover:underline" style={{ color: "inherit" }}>{CONTACT.phone}</a></p>
+                <p className="flex items-center gap-2.5"><MapPin size={17} className="c-pine" /> {CONTACT.base}</p>
               </div>
               <p className="f-mono text-xs c-steel mt-4 pt-4 border-t bd-line">Placeholder details — replace before launch.</p>
             </div>
-            <div className="card-static rounded-lg p-6 md:p-8 flex flex-col flex-1">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-md" style={{ background: "rgba(34,81,204,0.08)" }}>
-                  <Calendar size={22} className="c-blue" />
-                </span>
-                <div>
-                  <h3 className="f-display font-bold text-lg">Book directly</h3>
-                  <p className="c-steel text-sm">Free 30-minute consultation</p>
-                </div>
-              </div>
-              <div className="flex-1 mt-5 rounded-md border border-dashed bd-line flex flex-col items-center justify-center text-center px-6 py-10" style={{ background: "#EEF2F8" }}>
-                <p className="f-mono text-xs c-steel tracking-widest uppercase">Calendar embed</p>
-                <p className="c-steel text-sm mt-2 max-w-xs">Replace with your Calendly or Cal.com inline embed.</p>
-              </div>
+            <div className="card-static rounded-lg p-6 md:p-8">
+              <h3 className="f-display font-bold text-lg">What happens next</h3>
+              <ul className="flex flex-col gap-3 mt-4 text-sm c-steel list-none p-0 m-0" style={{ lineHeight: 1.6 }}>
+                <li>1. We reply within one business day to set up your free 30-minute consultation.</li>
+                <li>2. On the call, we dig into the bottleneck — no pitch deck, no jargon.</li>
+                <li>3. If there's a fit, you get a fixed written proposal. If there isn't, we'll tell you that too.</li>
+              </ul>
             </div>
           </div>
         </div>

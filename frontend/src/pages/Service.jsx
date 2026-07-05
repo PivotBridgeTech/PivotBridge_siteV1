@@ -22,8 +22,8 @@ export default function Service() {
           {svc.offerings.map((o) => (
             <div key={o.name} className="card-static rounded-lg p-6 md:p-7">
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center w-9 h-9 rounded-md" style={{ background: "rgba(34,81,204,0.08)" }}>
-                  <Icon size={18} className="c-blue" />
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-md" style={{ background: "rgba(46,102,71,0.08)" }}>
+                  <Icon size={18} className="c-pine" />
                 </span>
                 <h3 className="f-display font-bold text-base">{o.name}</h3>
               </div>
@@ -31,8 +31,8 @@ export default function Service() {
             </div>
           ))}
         </div>
-        <div className="card-static rounded-lg p-6 md:p-7 mt-4" style={{ borderColor: "var(--blue)", borderWidth: 1.5 }}>
-          <p className="f-mono text-xs c-blue tracking-widest uppercase">Is this you?</p>
+        <div className="card-static rounded-lg p-6 md:p-7 mt-4" style={{ borderColor: "var(--pine)", borderWidth: 1.5 }}>
+          <p className="f-mono text-xs c-pine tracking-widest uppercase">Is this you?</p>
           <p className="text-sm mt-2 c-steel" style={{ lineHeight: 1.65 }}>{svc.fit}</p>
         </div>
       </section>
@@ -44,8 +44,8 @@ export default function Service() {
           {PROCESS.map(({ icon: PIcon, name, body }, i) => (
             <div key={name} className="card-static rounded-lg p-6">
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-md" style={{ background: "rgba(34,81,204,0.08)" }}>
-                  <PIcon size={20} className="c-blue" />
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-md" style={{ background: "rgba(46,102,71,0.08)" }}>
+                  <PIcon size={20} className="c-pine" />
                 </span>
                 <span className="f-mono text-xs c-steel tracking-widest">0{i + 1}</span>
               </div>

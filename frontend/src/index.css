@@ -1,45 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0C1B2A; --paper: #F6F8FB; --blue: #2251CC; --blue-deep: #1A3FA0;
-  --sky: #9DB8F0; --steel: #5C6B7C; --line: rgba(12, 27, 42, 0.10);
+  --ink: #1C2B22; --paper: #F7F9F6; --pine: #2E6647; --pine-deep: #234E36;
+  --sage: #94BFA2; --steel: #5D6E63; --line: rgba(28, 43, 34, 0.12);
 }
 
-body { background: var(--paper); color: var(--ink); font-family: 'Public Sans', system-ui, sans-serif; }
-.f-display { font-family: 'Bricolage Grotesque', system-ui, sans-serif; }
+body { background: var(--paper); color: var(--ink); font-family: 'Manrope', system-ui, sans-serif; }
+.f-display { font-family: 'Manrope', system-ui, sans-serif; }
 .f-mono { font-family: 'IBM Plex Mono', monospace; }
-.c-steel { color: var(--steel); } .c-blue { color: var(--blue); } .c-sky { color: var(--sky); }
+.c-steel { color: var(--steel); } .c-pine { color: var(--pine); } .c-sage { color: var(--sage); }
 .bg-ink { background: var(--ink); } .bg-paper { background: var(--paper); }
 .bd-line { border-color: var(--line); }
 
 .hero-glow {
   background:
-    radial-gradient(55% 45% at 50% -5%, rgba(34,81,204,0.14), transparent 70%),
-    radial-gradient(35% 30% at 85% 15%, rgba(157,184,240,0.18), transparent 70%);
+    radial-gradient(55% 45% at 50% -5%, rgba(46,102,71,0.14), transparent 70%),
+    radial-gradient(35% 30% at 85% 15%, rgba(148,191,162,0.18), transparent 70%);
 }
 .dark-glow {
   background:
-    radial-gradient(50% 40% at 15% 0%, rgba(34,81,204,0.25), transparent 70%),
-    radial-gradient(40% 35% at 90% 100%, rgba(157,184,240,0.10), transparent 70%);
+    radial-gradient(50% 40% at 15% 0%, rgba(46,102,71,0.25), transparent 70%),
+    radial-gradient(40% 35% at 90% 100%, rgba(148,191,162,0.10), transparent 70%);
 }
-.btn-primary { background: var(--blue); color: #fff; border: none; cursor: pointer; transition: background .2s ease, transform .2s ease; }
-.btn-primary:hover { background: var(--blue-deep); transform: translateY(-1px); }
+.btn-primary { background: var(--pine); color: #fff; border: none; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.btn-primary:hover { background: var(--pine-deep); transform: translateY(-1px); }
 .btn-ghost { color: var(--ink); border: 1px solid var(--ink); background: none; cursor: pointer; transition: background .2s ease, color .2s ease; }
 .btn-ghost:hover { background: var(--ink); color: var(--paper); }
 .card { background: #fff; border: 1px solid var(--line); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
-.card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 12px 32px -16px rgba(34, 81, 204, 0.35); }
+.card:hover { border-color: var(--pine); transform: translateY(-3px); box-shadow: 0 12px 32px -16px rgba(46, 102, 71, 0.35); }
 .card-static { background: #fff; border: 1px solid var(--line); }
 .rise { opacity: 0; transform: translateY(14px); animation: rise .7s ease-out forwards; }
 .rise-1 { animation-delay: .05s } .rise-2 { animation-delay: .18s } .rise-3 { animation-delay: .3s } .rise-4 { animation-delay: .42s }
 @keyframes rise { to { opacity: 1; transform: translateY(0); } }
 .field { background: #fff; border: 1px solid var(--line); color: var(--ink); transition: border-color .2s ease, box-shadow .2s ease; }
-.field:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(34,81,204,.15); }
-a:focus-visible, button:focus-visible, .field:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.field:focus { outline: none; border-color: var(--pine); box-shadow: 0 0 0 3px rgba(46,102,71,.15); }
+a:focus-visible, button:focus-visible, .field:focus-visible { outline: 2px solid var(--pine); outline-offset: 2px; }
 .navlink { color: var(--steel); transition: color .2s; background: none; border: none; cursor: pointer; font-size: 0.875rem; padding: 0; font-family: inherit; text-decoration: none; }
-.navlink:hover, .navlink.active { color: var(--blue); }
+.navlink:hover, .navlink.active { color: var(--pine); }
 .painbtn { transition: border-color .2s ease, background .2s ease; }
-.painbtn:hover { border-color: var(--blue); }
-.painbtn.on { border-color: var(--blue); background: rgba(34,81,204,0.06); }
+.painbtn:hover { border-color: var(--pine); }
+.painbtn.on { border-color: var(--pine); background: rgba(46,102,71,0.06); }
 
 @media (prefers-reduced-motion: reduce) {
   .rise { animation: none; opacity: 1; transform: none; }

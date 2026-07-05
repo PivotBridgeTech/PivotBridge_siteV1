@@ -63,11 +63,11 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <div className="h-full flex flex-col items-center justify-center text-center py-12">
-        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full" style={{ background: "rgba(34,81,204,0.1)" }}>
-          <Check size={24} className="c-blue" />
+        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full" style={{ background: "rgba(46,102,71,0.1)" }}>
+          <Check size={24} className="c-pine" />
         </span>
         <h3 className="f-display font-bold text-xl mt-4">Message sent</h3>
-        <p className="c-steel text-sm mt-2 max-w-xs">We reply within one business day. Want to skip the wait? Grab a time on the calendar.</p>
+        <p className="c-steel text-sm mt-2 max-w-xs">We reply within one business day — keep an eye on your inbox.</p>
       </div>
     );
   }

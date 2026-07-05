@@ -1,4 +1,4 @@
-import { PROCESS } from "../data/content.jsx";
+import { MISSION, PROCESS, TEAM_STATEMENTS } from "../data/content.jsx";
 import { Eyebrow, PageHero, CTABand } from "../components/Shared.jsx";
 import usePageTitle from "../components/usePageTitle.js";
 
@@ -23,8 +23,66 @@ export default function About() {
         title="The engineering team you don't have to hire."
         intro="Pivot Bridge Technology exists for one kind of client: the small or medium business that knows technology could be moving their numbers, but doesn't have — and shouldn't need — an in-house engineering department."
       />
-      <section className="max-w-6xl mx-auto px-5 pb-12">
-        <div className="grid md:grid-cols-3 gap-4">
+
+      {/* Mission — contained band, two columns */}
+      <section className="border-y bd-line" style={{ background: "#ECF2ED" }}>
+        <div className="max-w-6xl mx-auto px-5 py-14 md:py-20 grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+          <div>
+            <Eyebrow>{MISSION.eyebrow}</Eyebrow>
+            <h2 className="f-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight mt-3" style={{ lineHeight: 1.15 }}>
+              {MISSION.lead}<span className="c-pine">{MISSION.highlight}</span>{MISSION.rest}
+            </h2>
+          </div>
+          <div className="flex flex-col gap-6">
+            <p className="c-steel text-base md:text-lg" style={{ lineHeight: 1.7 }}>{MISSION.body}</p>
+            <div className="card-static rounded-lg p-6 md:p-7" style={{ borderColor: "var(--pine)", borderWidth: 1.5 }}>
+              <p className="f-mono text-xs c-pine tracking-widest uppercase">{MISSION.statementLabel}</p>
+              <p className="text-sm md:text-base mt-2" style={{ lineHeight: 1.7 }}>{MISSION.statement}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership — one contained card per person */}
+      <section className="max-w-6xl mx-auto px-5 py-16 md:py-20">
+        <Eyebrow>Leadership</Eyebrow>
+        <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">
+          The people you'll actually work with.
+        </h2>
+        <div className="flex flex-col gap-4 mt-8">
+          {TEAM_STATEMENTS.map((p) => (
+            <article key={p.name} className="card-static rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-6">
+              <div className="md:col-span-3 flex md:flex-col items-center md:items-start gap-3.5">
+                <span
+                  className="inline-flex items-center justify-center rounded-full f-display font-bold text-base shrink-0"
+                  style={{ width: 52, height: 52, color: "#fff", background: `linear-gradient(135deg, ${p.gradient[0]}, ${p.gradient[1]})` }}
+                  aria-hidden="true"
+                >
+                  {p.initials}
+                </span>
+                <div>
+                  <p className="f-display font-bold text-base m-0">{p.name}</p>
+                  <p className="f-mono text-xs c-steel tracking-widest uppercase m-0 mt-1">{p.role}</p>
+                </div>
+              </div>
+              <div className="md:col-span-9">
+                <blockquote className="m-0 f-display font-semibold text-base md:text-lg" style={{ lineHeight: 1.6, letterSpacing: "-0.01em" }}>
+                  "{p.statement}"
+                </blockquote>
+                {p.bio && (
+                  <p className="c-steel text-sm mt-5 pt-5 border-t bd-line" style={{ lineHeight: 1.65 }}>{p.bio}</p>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="max-w-6xl mx-auto px-5 pb-16">
+        <Eyebrow>What we stand by</Eyebrow>
+        <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">Three rules we don't break.</h2>
+        <div className="grid md:grid-cols-3 gap-4 mt-8">
           {VALUES.map((v) => (
             <div key={v.title} className="card-static rounded-lg p-6 md:p-7">
               <h3 className="f-display font-bold text-lg">{v.title}</h3>
@@ -34,15 +92,16 @@ export default function About() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-5 pb-12">
+      {/* Process */}
+      <section className="max-w-6xl mx-auto px-5 pb-16">
         <Eyebrow>How we work</Eyebrow>
         <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">Four steps, no surprises.</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
           {PROCESS.map(({ icon: PIcon, name, body }, i) => (
             <div key={name} className="card-static rounded-lg p-6">
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-md" style={{ background: "rgba(34,81,204,0.08)" }}>
-                  <PIcon size={20} className="c-blue" />
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-md" style={{ background: "rgba(46,102,71,0.08)" }}>
+                  <PIcon size={20} className="c-pine" />
                 </span>
                 <span className="f-mono text-xs c-steel tracking-widest">0{i + 1}</span>
               </div>
@@ -53,6 +112,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* The honest part */}
       <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24">
         <div className="card-static rounded-lg p-6 md:p-8" style={{ borderColor: "var(--ink)", borderWidth: 1.5 }}>
           <Eyebrow>The honest part</Eyebrow>

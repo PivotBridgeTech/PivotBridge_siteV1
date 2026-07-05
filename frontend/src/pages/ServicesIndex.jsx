@@ -20,14 +20,14 @@ export default function ServicesIndex() {
           {SERVICES.map(({ slug, icon: Icon, tag, title, short }) => (
             <Link key={slug} to={`/services/${slug}`} className="card rounded-lg p-6 md:p-8 text-left no-underline" style={{ color: "var(--ink)" }}>
               <div className="flex items-center justify-between">
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-md" style={{ background: "rgba(34,81,204,0.08)" }}>
-                  <Icon size={22} className="c-blue" />
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-md" style={{ background: "rgba(46,102,71,0.08)" }}>
+                  <Icon size={22} className="c-pine" />
                 </span>
                 <span className="f-mono text-xs c-steel tracking-widest">{tag}</span>
               </div>
               <h3 className="f-display font-bold text-xl mt-5">{title}</h3>
               <p className="c-steel text-sm mt-2" style={{ lineHeight: 1.65 }}>{short}</p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold c-blue mt-4">
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold c-pine mt-4">
                 Full details <ChevronRight size={16} />
               </span>
             </Link>
