@@ -129,10 +129,141 @@ export const FAQS = [
   { q: "Can you take over an existing system another developer built?", a: "Yes — legacy rescue is a regular part of our work. We audit what exists, stabilize it, document it, and then improve it." },
 ];
 
+// Article bodies use a light markup: "## " starts a section heading,
+// blank lines separate paragraphs, **bold** and *italic* work inline.
+// Rendered by frontend/src/pages/Article.jsx.
 export const POSTS = [
-  { tag: "CLOUD", title: "What cloud migration actually costs a small business — and what makes it cheaper", excerpt: "The real line items behind a migration, the ones providers don't put on the pricing page, and the three decisions that cut the bill the most." },
-  { tag: "AUTOMATION", title: "Five signs your business is ready for automation", excerpt: "You don't need to be 'a tech company.' If any of these five patterns shows up in your week, automation will pay for itself." },
-  { tag: "AI", title: "AI for small businesses: what's real, what's hype", excerpt: "A plain-language guide to the AI use cases that reliably return money for small businesses — and the ones that only demo well." },
+  {
+    slug: "what-cloud-migration-actually-costs",
+    tag: "CLOUD",
+    title: "What cloud migration actually costs a small business — and what makes it cheaper",
+    excerpt: "The real line items behind a migration, the ones providers don't put on the pricing page, and the three decisions that cut the bill the most.",
+    date: "June 10, 2026",
+    readTime: "5 min read",
+    body: `The estimate you get from a cloud provider's pricing calculator is not wrong, exactly. It prices the things you typed into it. The problem is that a real migration has costs nobody types into a calculator, and those are usually the ones that blow the budget.
+
+We've watched this play out enough times to know where the money actually goes.
+
+## The part the calculator covers
+
+Compute, storage, bandwidth. If your migration were only that, the calculator would be fine. In practice it covers maybe sixty percent of what you'll spend in year one.
+
+## Where the rest goes
+
+The first surprise is usually **egress fees**. Getting your data into the cloud is free — providers are generous on the way in. Getting it back out is not. If your business regularly ships large files to clients, or you ever want to move to a different provider, you'll pay for every gigabyte on the way out. This is not an accident. It's how providers make leaving expensive.
+
+Then there's the server you moved as-is. On-premise, an oversized server didn't cost you anything extra — you'd already bought it, and it sat there whether you used it or not. Move that same server to the cloud and its idle capacity becomes a monthly charge. We've audited setups where the client was paying for four times the compute they touched on their busiest day, because the sizing was copied straight from a machine bought in 2019 for a worst case that never came.
+
+Downtime and labor are the costs people most want to skip. Somebody has to plan the cutover, rehearse it, and be awake when it happens. Migrations that "save money" by skipping the rehearsal tend to spend it back with interest — emergency hours at 2 a.m., plus whatever an outage costs you in lost orders while it's being sorted out.
+
+And occasionally an application just doesn't want to move. It was written fifteen years ago assuming a specific server, a specific folder, a specific version of something. Rebuilding it for the cloud is a real project with a real price, and it's almost never in the original estimate because nobody knew until they looked.
+
+## What actually keeps the bill down
+
+Three things, in order of impact.
+
+Measure before you move. Pull a month of actual CPU, memory, and storage numbers off your current servers and size the cloud resources to those, not to the label on the old hardware. This one step is the difference between paying for what you use and paying for what someone was afraid of five years ago.
+
+Be picky about managed services. A managed database costs more per hour than running the same database yourself, and it's often worth every penny — backups, patching, and failover become the provider's problem instead of yours. But "managed everything" as a reflex gets expensive. Some of your workloads are simple enough that the premium buys you nothing.
+
+Don't commit early. Reserved pricing can knock 30–50% off compute costs, but only if you reserve the right amount. Committing in month one means locking in a guess. Run on demand for two or three months, look at the real usage, then commit against numbers instead of nerves.
+
+## The bottom line
+
+Migrations planned this way tend to land near the estimate. Migrations that skip the measuring and rehearsing usually run 20–40% over — and the overage doesn't come from bad luck, it comes from the items above, which were always going to show up whether or not anyone priced them.
+
+If the proposal in front of you looks suspiciously clean, ask which of these it includes. The answer tells you a lot about who wrote it.`,
+  },
+  {
+    slug: "five-signs-your-business-is-ready-for-automation",
+    tag: "AUTOMATION",
+    title: "Five signs your business is ready for automation",
+    excerpt: "You don't need to be 'a tech company.' If any of these five patterns shows up in your week, automation will pay for itself.",
+    date: "June 24, 2026",
+    readTime: "5 min read",
+    body: `Most business owners assume automation is for companies bigger than theirs — the ones with an IT department and a budget line for software. In our experience the opposite is closer to true. Small businesses are usually better candidates, because the waste is easier to find and one fix touches a bigger share of the week.
+
+You don't need a technology audit to know if you're ready. You need to recognize a few patterns. Here are the five we see most.
+
+## 1. The same data gets typed twice
+
+A new customer goes into the CRM. Then into the invoicing tool. Then into the shipping system. Nobody designed it this way; the tools just never learned to talk to each other, and re-typing became somebody's job by default.
+
+Each entry takes two minutes. That's the trap — no single instance is worth fixing, so it never gets fixed, and meanwhile it's happening forty times a week with the occasional typo that takes an hour to chase down later. Connecting the systems is usually a small project. The payback starts the same week.
+
+## 2. Monday morning belongs to a spreadsheet
+
+If someone spends half a day pulling numbers from three systems into a report before anyone can make decisions, that's the clearest automation candidate there is. The logic never changes. Same sources, same format, every week. Reports like this can be generated automatically and waiting in an inbox at 7 a.m., and the person who used to build it gets their Monday back.
+
+We like this one as a first project because it pays back fast and everyone in the company can see it working.
+
+## 3. Follow-ups depend on someone remembering
+
+A lead comes in Tuesday. Follow-up happens... when it happens. On a calm week, same day. On a busy week, Thursday — by which point the lead has heard back from two competitors.
+
+Owners tend to read this as a discipline problem and respond with reminders and pep talks. It usually isn't one. It's a process that relies on human memory in exactly the spot where human memory is weakest: routine, low-urgency tasks during busy periods. A follow-up sequence that fires on its own doesn't have busy weeks.
+
+## 4. Your team answers the same email over and over
+
+Sit with your inbox for a week and count how many replies were, roughly, an answer you've written before. For most service businesses it's a large fraction — hours, pricing basics, "what do I need to bring," order status. Each one feels like a one-off to the customer. To your team, it's the tenth time this week.
+
+This work can be drafted automatically, with a person still reading and approving what goes out. Nobody loses the human touch. They just stop typing the same paragraph from scratch.
+
+## 5. The business can't grow past one person's capacity
+
+If every order, application, or new client has to be personally touched by one specific person — often the owner — then the ceiling on your growth is that person's calendar. People usually call this a hiring problem. Before it's a hiring problem, it's a process problem: the workflow was built around one person doing everything by hand, and hiring a second person into a broken process just gives you two people doing it by hand.
+
+## What doesn't belong on this list
+
+Judgment. Pricing exceptions, tough customer conversations, anything where context changes the right answer — that stays with people. Automation earns its keep on the work *around* the judgment calls: the copying, the chasing, the reformatting. The stuff nobody was hired to do but everybody does.
+
+## The arithmetic
+
+Take any pattern above that made you wince. Estimate the hours per week it eats and multiply by what that person's time costs you. In most businesses we look at, at least one of these patterns is quietly consuming a full workday every week. Fixing it usually pays for itself in a quarter — sometimes in a month.`,
+  },
+  {
+    slug: "ai-for-small-businesses-whats-real-whats-hype",
+    tag: "AI",
+    title: "AI for small businesses: what's real, what's hype",
+    excerpt: "A plain-language guide to the AI use cases that reliably return money for small businesses — and the ones that only demo well.",
+    date: "July 6, 2026",
+    readTime: "5 min read",
+    body: `There is a lot of money being spent right now convincing small business owners that they're falling behind on AI. Some of what's being sold is genuinely useful. A lot of it is not. After building these systems for a while, we've found the line between the two is surprisingly easy to spot once you know what to look for.
+
+## The one-question filter
+
+Ask whoever's pitching you: **what specific task does this do?**
+
+Not which department it transforms. Not what capabilities it unlocks. What task. Who does that task today, how long does it take them, and how will we know if the AI version worked?
+
+Real AI projects have boring answers to this question. "It reads incoming invoices and puts the vendor, amount, and due date into your accounting system." "It drafts a first reply to inbound leads for your salesperson to edit." When the answer is specific, the project can be scoped, priced, and measured.
+
+Hype has grand answers. "It will transform how you engage customers." Vague is a feature for the seller — vague is easy to promise and impossible to fail at. If nobody in the room can name the task, nobody will ever be able to say the project didn't work.
+
+## Things that actually work today
+
+Reading documents is the standout. Contracts, invoices, intake forms, compliance paperwork — AI has gotten genuinely good at pulling the relevant fields out of messy documents and routing them where they belong. It works partly because the task is narrow, and partly because the failure mode is safe: a wrong extraction gets caught by the person reviewing it, not silently mailed to a customer.
+
+First drafts are the other big one. Email replies, call summaries, report outlines. The value isn't that the machine replaces the person — it's that the person starts from an 80% draft instead of a blank page. Editing is faster than writing. It always has been.
+
+Sorting and triage, too. Deciding which of this morning's forty inbound emails needs attention first is real work, and it's work AI does well enough to trust, because the cost of an occasional mis-sort is low.
+
+Notice what these have in common: narrow task, human checkpoint, cheap failures. That combination is where AI is reliably worth money right now.
+
+## Things that demo well and then embarrass you
+
+Autonomous decision-making tops the list. Any system meant to make consequential calls — pricing, hiring, anything medical or legal — without a human reviewing the output is being oversold. The demo will be flawless. Demos always are. The failure arrives in month three, on a weird case nobody demoed, and it costs more than the system saved.
+
+Generic chatbots are the most common trap we see. A chat widget bolted onto a website with no grounding in your actual services and policies will answer confidently and wrongly, in your company's name. If it doesn't know your business, it shouldn't speak for your business.
+
+And anything pitched as "transformation" with no number attached. If nobody will say what hours or dollars come back, and when, it isn't a project yet. It's a mood.
+
+## Three questions before you sign anything
+
+What task does it do? Who reviews the output, and what happens when the system isn't sure? What do we expect back, in hours or dollars, and by when?
+
+A real proposal answers all three without flinching. That's the whole test. The businesses getting real value from AI right now aren't the ones with a strategy deck — they're the ones that found the three most repetitive hours in somebody's day and built the narrowest possible system to take them over.`,
+  },
 ];
 
 // ─── About page: mission & leadership statements ───────────────────────────

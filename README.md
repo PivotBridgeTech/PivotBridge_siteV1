@@ -116,6 +116,7 @@ requirements — no code changes needed.
 3. Replace the placeholder Head of Engineering (Maya) in the
    TEAM_STATEMENTS array in `frontend/src/data/content.jsx` with the
    real person.
-4. Remove "Insights" from the nav (src/components/Nav.jsx LINKS array)
-   until you've published at least two real articles.
-5. Verify the three case studies describe your actual work accurately.
+4. Verify the three case studies describe your actual work accurately.
+5. Review the three Insights articles (POSTS in
+   `frontend/src/data/content.jsx`) — they're written in the company
+   voice; adjust any claims that don't match how you actually deliver.
