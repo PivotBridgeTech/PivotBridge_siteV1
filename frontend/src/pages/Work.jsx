@@ -9,7 +9,7 @@ export default function Work() {
       <PageHero
         eyebrow="Our work"
         title="Built, shipped, and running in real businesses."
-        intro="Engagements across seven industries that show how we work: find the expensive problem, build the smallest system that solves it, and leave the client owning everything."
+        intro="Engagements across industries that show how we work: find the expensive problem, build the smallest system that solves it, and leave the client owning everything."
       />
       <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24 flex flex-col gap-4">
         {CASES.map((c) => (
