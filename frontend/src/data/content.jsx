@@ -90,7 +90,7 @@ export const INDUSTRIES = [
 
 export const CASES = [
   {
-    ref: "CASE / A",
+    industry: "HOSPITALITY",
     title: "AI-powered compliance for a restaurant group",
     problem: "Layout and equipment changes kept drifting out of sync with local health and fire code — and the fines arrived before anyone noticed the gap.",
     built: "An AI review system that checks proposed floor-plan and equipment changes against current regulations and flags violations before they're built.",
@@ -98,7 +98,7 @@ export const CASES = [
     stack: "LLM document analysis · regulation database · review dashboard",
   },
   {
-    ref: "CASE / B",
+    industry: "B2B SALES",
     title: "Lead generation automation for B2B outbound",
     problem: "Sales reps were spending mornings building call lists by hand — inconsistent data, duplicate targets, cold scripts.",
     built: "An automated pipeline that assembles enriched, industry-specific contact directories and prioritizes them for cold-calling campaigns.",
@@ -106,12 +106,44 @@ export const CASES = [
     stack: "Data enrichment pipeline · dedupe engine · CRM integration",
   },
   {
-    ref: "CASE / C",
+    industry: "CONSUMER APPS",
     title: "Feature deployment for an existing mobile app",
     problem: "A growing app with real users, no in-house developers, and a feature backlog that kept slipping.",
     built: "Scalable feature releases shipped into the existing codebase — designed, built, tested, and deployed without disrupting the current user base.",
     result: "A shipping cadence the business could finally plan around.",
     stack: "Mobile CI/CD · staged rollouts · codebase documentation",
+  },
+  {
+    industry: "HEALTHCARE",
+    title: "Zero-downtime cloud migration for a multi-location clinic",
+    problem: "Scheduling and patient communication ran on a single aging server in a back office — no failover, backups on an external drive, and every outage meant staff on paper and patients on hold.",
+    built: "A rehearsed migration to managed cloud infrastructure with encrypted backups, monitoring, and access controls sized for health-data obligations — cut over overnight between clinic days.",
+    result: "No downtime during the move, and no unplanned outages since.",
+    stack: "Cloud migration · encrypted backup regimen · 24/7 monitoring",
+  },
+  {
+    industry: "LOGISTICS",
+    title: "Real-time delivery tracking for a regional fleet",
+    problem: "Dispatchers spent their day fielding 'where's my delivery?' calls, because the only person who knew a truck's status was the driver inside it.",
+    built: "A live dispatch dashboard plus automatic customer notifications at pickup, en route, and delivery — so status questions answer themselves.",
+    result: "Status calls dropped to a trickle; dispatchers schedule routes instead of answering the phone.",
+    stack: "GPS integration · dispatch dashboard · automated SMS & email notifications",
+  },
+  {
+    industry: "E-COMMERCE",
+    title: "Order-to-fulfillment automation for an online retailer",
+    problem: "Every order was retyped by hand from the storefront into inventory and shipping systems — hours of daily copying, and the occasional typo that turned into a refund and an apology.",
+    built: "An automated pipeline connecting storefront, inventory, and shipping-label generation, with a review queue for the exceptions that genuinely need a human.",
+    result: "Order processing went from minutes each to seconds, with entry errors effectively eliminated.",
+    stack: "Storefront API integration · inventory sync · shipping automation",
+  },
+  {
+    industry: "LEGAL",
+    title: "AI document intake for a law office",
+    problem: "Client documents arrived as scans and email attachments, and paralegals retyped the key details — parties, dates, deadlines — into case management by hand.",
+    built: "An AI intake pipeline that reads incoming documents, extracts the fields that matter, and files them to the right case — with a paralegal approving every entry before it lands.",
+    result: "Intake dropped from most of an hour per file to a few minutes of review.",
+    stack: "LLM document analysis · OCR pipeline · case-management integration",
   },
 ];
 
