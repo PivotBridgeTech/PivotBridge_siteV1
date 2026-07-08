@@ -113,10 +113,8 @@ requirements — no code changes needed.
 1. Replace placeholder contact info in `frontend/src/data/content.jsx`
    (CONTACT object) — the 555 number is intentionally fake.
 2. Set a real ADMIN_API_KEY (long random string) in backend/.env.
-3. Replace the placeholder Head of Engineering (Maya) in the
-   TEAM_STATEMENTS array in `frontend/src/data/content.jsx` with the
-   real person.
-4. Verify the three case studies describe your actual work accurately.
-5. Review the three Insights articles (POSTS in
+3. Verify the case studies (CASES in `frontend/src/data/content.jsx`)
+   describe your actual work accurately.
+4. Review the three Insights articles (POSTS in
    `frontend/src/data/content.jsx`) — they're written in the company
    voice; adjust any claims that don't match how you actually deliver.

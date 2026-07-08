@@ -299,11 +299,9 @@ A real proposal answers all three without flinching. That's the whole test. The 
 ];
 
 // ─── About page: mission & leadership statements ───────────────────────────
-// MISSION and Suleyman’s entry are real. The other two people (Jordan, Maya)
-// are PLACEHOLDERS — replace names, roles, quotes, and bios before launch.
 export const MISSION = {
   eyebrow: "Why we exist",
-  // The `highlight` phrase renders in blue inside the headline.
+  // The `highlight` phrase renders in the pine accent inside the headline.
   lead: "Small and medium businesses shouldn’t have to choose between ",
   highlight: "fighting their tools",
   rest: " and growing their company.",
@@ -317,13 +315,13 @@ export const MISSION = {
 export const TEAM_STATEMENTS = [
   {
     initials: "SA",
-    name: "Suleyman Abdirahman",
+    name: "Suley A.",
     role: "Co-founder",
     gradient: ["#2E6647", "#234E36"],
     statement:
       "I founded Pivot Bridge on a simple belief: every business, regardless of size, deserves access to enterprise-grade technology that drives real results. I work directly with clients to understand their challenges and translate them into solutions — software, AI, or automation — that deliver measurable value.",
     bio:
-      "Suleyman leads business strategy and client partnerships while supporting technical delivery. He brings a rare blend of business acumen and engineering depth to every engagement — from architecting enterprise AI and data systems to managing large-scale technology programs that cut complexity through automation. He holds bachelor’s degrees in Computer Engineering and Economics, with a Master’s in Computer Science in progress at Georgia Tech.",
+      "Suley leads business strategy and client partnerships while supporting technical delivery. He brings a rare blend of business acumen and engineering depth to every engagement — from architecting enterprise AI and data systems to managing large-scale technology programs that cut complexity through automation. He holds bachelor’s degrees in Computer Engineering and Economics, with a Master’s in Computer Science in progress at Georgia Tech.",
   },
   {
     initials: "YB",
@@ -333,18 +331,17 @@ export const TEAM_STATEMENTS = [
     statement:
       "Technology only matters if it moves the business forward — that's the test I apply to every system we design. My job is to take what's technically impressive and make it practically useful: turning enterprise data platforms and intelligent automation into tools that produce measurable outcomes, not just technical wins.",
     bio:
-      "Yashoda drives product vision and technical strategy at Pivot Bridge. With over 5 years of IT product management experience, he's passionate about helping organizations navigate complex technological landscapes to unlock new growth and efficiency. He holds a Master's in Technology Management from the University of Illinois Urbana-Champaign and a Bachelor's in Mechanical Engineering. Across his career he's built a track record of solving complex engineering and business-domain challenges, drawing on deep expertise in IT, advanced AI architectures, data science, and software development to turn highly technical systems — from enterprise data platforms to intelligent automation — into practical, scalable business applications.",
+      "Yashoda drives product vision and technical strategy at Pivot Bridge. With almost a decade of IT product management experience, he's passionate about helping organizations navigate complex technological landscapes to unlock new growth and efficiency. He holds a Master's in Technology Management from the University of Illinois Urbana-Champaign and a Bachelor's in Mechanical Engineering. Across his career he's built a track record of solving complex engineering and business-domain challenges, drawing on deep expertise in IT, advanced AI architectures, data science, and software development to turn highly technical systems — from enterprise data platforms to intelligent automation — into practical, scalable business applications.",
   },
   {
-    // PLACEHOLDER person — replace before launch
-    initials: "MO",
-    name: "Maya Okafor",
+    initials: "TK",
+    name: "Tarun Katragadda",
     role: "Head of Engineering",
     gradient: ["#6FA383", "#2E6647"],
     statement:
-      "’Built to outlast us’ isn’t a slogan to me — it’s the standard every code review is held to. Every system we ship has to be one a competent stranger could maintain from the documentation alone. If it needs us around to survive, I haven’t finished the job.",
+      "Reliability isn't something you bolt on at the end — it's a decision you make in the first line of architecture. I've spent a decade keeping systems standing for organizations that can't afford a minute of downtime, and that same discipline goes into everything we build here: systems that scale when your business does, and stay up when it matters most.",
     bio:
-      "Maya sets the engineering bar across every build — architecture, code review, and the documentation standard that makes client ownership real. (Placeholder bio.)",
+      "Tarun leads the engineering vision at Pivot Bridge, driving the AI and cloud work that helps businesses modernize their technology, automate complex workflows, and accelerate digital transformation. He brings almost a decade in Site Reliability Engineering, DevOps, and cloud architecture — including large-scale cloud migrations, platform modernization, and AI automation for enterprise organizations, among them global financial institutions like Visa. He holds a Master's in Engineering from the University of Illinois Urbana-Champaign and is pursuing a Ph.D. on the application of AI in business. His work sits where business strategy meets engineering: turning emerging technology into resilient systems and lasting business value.",
   },
 ];
 
