@@ -9,12 +9,12 @@ export default function Work() {
       <PageHero
         eyebrow="Our work"
         title="Built, shipped, and running in real businesses."
-        intro="Three engagements that show how we work: find the expensive problem, build the smallest system that solves it, and leave the client owning everything."
+        intro="Engagements across industries that show how we work: find the expensive problem, build the smallest system that solves it, and leave the client owning everything."
       />
       <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24 flex flex-col gap-4">
         {CASES.map((c) => (
-          <article key={c.ref} className="card-static rounded-lg p-6 md:p-8">
-            <p className="f-mono text-xs c-blue tracking-widest">{c.ref}</p>
+          <article key={c.title} className="card-static rounded-lg p-6 md:p-8">
+            <p className="f-mono text-xs c-pine tracking-widest">{c.industry}</p>
             <h2 className="f-display font-bold text-2xl mt-2">{c.title}</h2>
             <div className="grid md:grid-cols-3 gap-5 mt-6">
               <div>

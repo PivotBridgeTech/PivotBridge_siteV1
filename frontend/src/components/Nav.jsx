@@ -1,23 +1,24 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo.jsx";
 
 const LINKS = [
-  ["/services", "Services"], ["/industries", "Industries"], ["/work", "Work"],
+  ["/", "Home"], ["/services", "Services"], ["/industries", "Industries"], ["/work", "Work"],
   ["/about", "About"], ["/insights", "Insights"], ["/contact", "Contact"],
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b bd-line" style={{ background: "rgba(246,248,251,0.85)", backdropFilter: "blur(12px)" }}>
+    <header className="sticky top-0 z-50 border-b bd-line" style={{ background: "rgba(247,249,246,0.85)", backdropFilter: "blur(12px)" }}>
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
-        <Link to="/" className="f-display font-bold text-lg tracking-tight no-underline" style={{ color: "var(--ink)" }}>
-          Pivot Bridge
+        <Link to="/" className="no-underline inline-flex items-center" aria-label="Pivot Bridge Technology — home">
+          <Logo size={38} />
         </Link>
         <nav className="hidden md:flex items-center gap-7">
           {LINKS.map(([to, label]) => (
-            <NavLink key={to} to={to} className={({ isActive }) => `navlink no-underline ${isActive ? "active" : ""}`}>
+            <NavLink key={to} to={to} end={to === "/"} className={({ isActive }) => `navlink no-underline ${isActive ? "active" : ""}`}>
               {label}
             </NavLink>
           ))}
@@ -32,7 +33,7 @@ export default function Nav() {
       {open && (
         <nav className="md:hidden border-t bd-line px-5 py-4 flex flex-col gap-4 bg-paper">
           {LINKS.map(([to, label]) => (
-            <NavLink key={to} to={to} onClick={() => setOpen(false)} className="navlink no-underline text-left">
+            <NavLink key={to} to={to} end={to === "/"} onClick={() => setOpen(false)} className="navlink no-underline text-left">
               {label}
             </NavLink>
           ))}

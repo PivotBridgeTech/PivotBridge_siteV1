@@ -68,16 +68,16 @@ export default function ChatWidget() {
       {open && (
         <div
           className="card-static rounded-lg shadow-xl flex flex-col overflow-hidden"
-          style={{ width: "min(92vw, 380px)", height: "min(70vh, 520px)", boxShadow: "0 20px 50px -20px rgba(12,27,42,0.45)" }}
+          style={{ width: "min(92vw, 380px)", height: "min(70vh, 520px)", boxShadow: "0 20px 50px -20px rgba(28,43,34,0.45)" }}
           role="dialog"
           aria-label="Chat with Pivot Bridge assistant"
         >
           <div className="bg-ink px-4 py-3 flex items-center justify-between">
             <div>
               <p className="f-display font-bold text-sm text-white">Pivot Bridge assistant</p>
-              <p className="f-mono text-xs" style={{ color: "#8FA0B5" }}>Asks about your business, not your stack</p>
+              <p className="f-mono text-xs" style={{ color: "#94A69A" }}>Asks about your business, not your stack</p>
             </div>
-            <button onClick={() => setOpen(false)} aria-label="Close chat" style={{ background: "none", border: "none", cursor: "pointer", color: "#B8C4D6" }}>
+            <button onClick={() => setOpen(false)} aria-label="Close chat" style={{ background: "none", border: "none", cursor: "pointer", color: "#BFCFC4" }}>
               <X size={18} />
             </button>
           </div>
@@ -89,15 +89,15 @@ export default function ChatWidget() {
                 className="rounded-lg px-3.5 py-2.5 text-sm max-w-[85%]"
                 style={
                   m.role === "user"
-                    ? { background: "var(--blue)", color: "#fff", alignSelf: "flex-end" }
-                    : { background: "#EEF2F8", color: "var(--ink)", alignSelf: "flex-start", lineHeight: 1.55 }
+                    ? { background: "var(--pine)", color: "#fff", alignSelf: "flex-end" }
+                    : { background: "#ECF2ED", color: "var(--ink)", alignSelf: "flex-start", lineHeight: 1.55 }
                 }
               >
                 {m.content}
               </div>
             ))}
             {sending && (
-              <div className="rounded-lg px-3.5 py-2.5 text-sm self-start" style={{ background: "#EEF2F8", color: "var(--steel)" }}>
+              <div className="rounded-lg px-3.5 py-2.5 text-sm self-start" style={{ background: "#ECF2ED", color: "var(--steel)" }}>
                 Thinking…
               </div>
             )}
@@ -143,7 +143,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen(!open)}
         className="btn-primary rounded-full inline-flex items-center justify-center"
-        style={{ width: 52, height: 52, boxShadow: "0 10px 28px -10px rgba(34,81,204,0.6)" }}
+        style={{ width: 52, height: 52, boxShadow: "0 10px 28px -10px rgba(46,102,71,0.6)" }}
         aria-label={open ? "Close chat" : "Chat with us"}
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}

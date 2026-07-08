@@ -15,17 +15,17 @@ export default function Industries() {
         {INDUSTRIES.map(({ icon: Icon, name, pain, detail }) => (
           <div key={name} className="card-static rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-5">
             <div className="md:col-span-4 flex items-start gap-3">
-              <span className="inline-flex items-center justify-center w-11 h-11 rounded-md shrink-0" style={{ background: "rgba(34,81,204,0.08)" }}>
-                <Icon size={22} className="c-blue" />
+              <span className="inline-flex items-center justify-center w-11 h-11 rounded-md shrink-0" style={{ background: "rgba(46,102,71,0.08)" }}>
+                <Icon size={22} className="c-pine" />
               </span>
               <h3 className="f-display font-bold text-lg">{name}</h3>
             </div>
             <div className="md:col-span-4">
-              <p className="f-mono text-xs c-blue tracking-widest uppercase">The stakes</p>
+              <p className="f-mono text-xs c-pine tracking-widest uppercase">The stakes</p>
               <p className="c-steel text-sm mt-2" style={{ lineHeight: 1.65 }}>{pain}</p>
             </div>
             <div className="md:col-span-4">
-              <p className="f-mono text-xs c-blue tracking-widest uppercase">What we do about it</p>
+              <p className="f-mono text-xs c-pine tracking-widest uppercase">What we do about it</p>
               <p className="c-steel text-sm mt-2" style={{ lineHeight: 1.65 }}>{detail}</p>
             </div>
           </div>

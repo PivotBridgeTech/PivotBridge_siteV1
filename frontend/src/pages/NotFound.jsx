@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <section className="hero-glow">
       <div className="max-w-6xl mx-auto px-5 py-24 md:py-36 text-center">
-        <p className="f-mono text-xs c-blue tracking-widest uppercase">404</p>
+        <p className="f-mono text-xs c-pine tracking-widest uppercase">404</p>
         <h1 className="f-display font-extrabold tracking-tight text-4xl md:text-5xl mt-4">
           That page doesn't exist.
         </h1>

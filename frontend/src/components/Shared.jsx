@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export const Eyebrow = ({ children, light }) => (
-  <p className="f-mono text-xs tracking-widest uppercase" style={{ color: light ? "#9DB8F0" : "#2251CC" }}>{children}</p>
+  <p className="f-mono text-xs tracking-wide" style={{ color: light ? "#94BFA2" : "#2E6647" }}>{children}</p>
 );
 
 export const CTABand = () => (
@@ -13,7 +13,7 @@ export const CTABand = () => (
         <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight text-white max-w-lg">
           Tell us the bottleneck. We'll bring the plan.
         </h2>
-        <p className="mt-2 text-sm md:text-base" style={{ color: "#B8C4D6" }}>
+        <p className="mt-2 text-sm md:text-base" style={{ color: "#BFCFC4" }}>
           Free 30-minute consultation. No pitch deck, no jargon.
         </p>
       </div>

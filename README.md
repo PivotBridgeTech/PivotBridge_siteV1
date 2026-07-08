@@ -113,10 +113,8 @@ requirements — no code changes needed.
 1. Replace placeholder contact info in `frontend/src/data/content.jsx`
    (CONTACT object) — the 555 number is intentionally fake.
 2. Set a real ADMIN_API_KEY (long random string) in backend/.env.
-3. Add your Calendly/Cal.com embed in Home.jsx and Contact.jsx where the
-   dashed placeholder panels are.
-4. Remove "Insights" from the nav (src/components/Nav.jsx LINKS array)
-   until you've published at least two real articles.
-5. Verify the three case studies describe your actual work accurately.
-6. Add a logo when you have one: Nav.jsx and Footer.jsx wordmarks are
-   the swap points.
+3. Verify the case studies (CASES in `frontend/src/data/content.jsx`)
+   describe your actual work accurately.
+4. Review the three Insights articles (POSTS in
+   `frontend/src/data/content.jsx`) — they're written in the company
+   voice; adjust any claims that don't match how you actually deliver.
