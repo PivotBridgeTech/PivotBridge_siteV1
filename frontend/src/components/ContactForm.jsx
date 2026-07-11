@@ -2,8 +2,13 @@ import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { PROJECT_TYPES } from "../data/content.jsx";
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function encodeForm(data) {
+  return Object.keys(data)
+    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
+    .join("&");
+}
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -29,29 +34,19 @@ export default function ContactForm() {
     setError("");
     setStatus("sending");
     try {
-      const res = await fetch(`${API}/api/contact`, {
+      const res = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeForm({
+          "form-name": "contact",
           name: form.name,
           email: form.email.trim(),
           company: form.company,
           project_type: form.type,
           message: form.message,
-          website: form.website, // honeypot — stays empty for humans
+          "bot-field": form.website, // honeypot — stays empty for humans
         }),
       });
-      if (res.status === 429) {
-        setError("Too many submissions from this connection. Try again in a bit.");
-        setStatus("idle");
-        return;
-      }
-      if (res.status === 422) {
-        setError("That email address doesn't look right — double-check it and try again.");
-        setInvalid({ email: true });
-        setStatus("idle");
-        return;
-      }
       if (!res.ok) throw new Error("Request failed");
       setStatus("sent");
     } catch {
@@ -117,7 +112,7 @@ export default function ContactForm() {
       <input
         type="text" value={form.website} onChange={update("website")}
         style={{ position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0 }}
-        tabIndex={-1} autoComplete="off" aria-hidden="true" name="website"
+        tabIndex={-1} autoComplete="off" aria-hidden="true" name="bot-field"
       />
       {error && <p className="text-sm" role="alert" style={{ color: "#B4322A" }}>{error}</p>}
       <button type="submit" disabled={status === "sending"} className="btn-primary font-semibold px-6 py-3 rounded-md inline-flex items-center justify-center gap-2 mt-1" style={{ opacity: status === "sending" ? 0.7 : 1 }}>
