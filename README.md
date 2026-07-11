@@ -7,6 +7,7 @@ handled entirely by Netlify Forms — no backend, no database.
 
 ```
 pivot-bridge/
+├── netlify.toml              # build/publish settings + SPA redirect
 └── frontend/
     ├── src/
     │   ├── pages/           # Home, ServicesIndex, Service, Industries,
