@@ -24,7 +24,7 @@ const TRUST = [
 ];
 
 export default function Home() {
-  usePageTitle();
+  usePageTitle(undefined, "We design and build the AI tools, custom software, and automations that take technology off your plate — then run the infrastructure behind them. You name the bottleneck. We remove it.");
   return (
     <>
       <section className="relative overflow-hidden hero-glow">

@@ -26,8 +26,9 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <RouteWatcher />
+      <a href="#main" className="skip-link">Skip to content</a>
       <Nav />
-      <main>
+      <main id="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesIndex />} />

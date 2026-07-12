@@ -3,7 +3,7 @@ import { PageHero, CTABand } from "../components/Shared.jsx";
 import usePageTitle from "../components/usePageTitle.js";
 
 export default function Work() {
-  usePageTitle("Our work");
+  usePageTitle("Our work", "Real engagements across industries — AI compliance, automation, cloud migration, and custom builds, each shipped and left in the client's ownership.");
   return (
     <>
       <PageHero

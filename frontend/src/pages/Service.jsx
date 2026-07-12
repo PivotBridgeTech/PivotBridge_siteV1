@@ -7,7 +7,10 @@ import usePageTitle from "../components/usePageTitle.js";
 export default function Service() {
   const { slug } = useParams();
   const idx = SERVICES.findIndex((s) => s.slug === slug);
-  usePageTitle(idx === -1 ? undefined : SERVICES[idx].title);
+  usePageTitle(
+    idx === -1 ? undefined : SERVICES[idx].title,
+    idx === -1 ? undefined : SERVICES[idx].short
+  );
   if (idx === -1) return <Navigate to="/services" replace />;
   const svc = SERVICES[idx];
   const Icon = svc.icon;

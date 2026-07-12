@@ -6,6 +6,15 @@
 }
 
 html { scroll-behavior: smooth; }
+
+/* Accessibility: keyboard-only skip link, visible on focus */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--pine); color: #fff; padding: 10px 16px; border-radius: 8px;
+  font-size: 0.875rem; font-weight: 600; text-decoration: none;
+  transition: top .2s ease;
+}
+.skip-link:focus { top: 12px; }
 body { background: var(--paper); color: var(--ink); font-family: 'Manrope', system-ui, sans-serif; }
 .f-display { font-family: 'Manrope', system-ui, sans-serif; }
 .f-mono { font-family: 'IBM Plex Mono', monospace; }

@@ -15,7 +15,7 @@ const NOT_FOR = [
 ];
 
 export default function About() {
-  usePageTitle("About");
+  usePageTitle("About", "Meet the team behind Pivot Bridge Technology — the engineering partner for small and medium businesses that need enterprise-grade software, AI, and cloud without an in-house department.");
   return (
     <>
       <PageHero

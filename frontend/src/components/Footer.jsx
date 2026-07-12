@@ -37,7 +37,7 @@ export default function Footer() {
             <p className="f-mono text-xs c-sage tracking-widest uppercase">Connect</p>
             <ul className="mt-4 flex flex-col gap-2.5 text-sm list-none p-0" style={{ color: "#BFCFC4" }}>
               <li><a href={`mailto:${CONTACT.email}`} className="no-underline hover:text-white" style={{ color: "inherit" }}>{CONTACT.email}</a></li>
-              <li><a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`} className="no-underline hover:text-white" style={{ color: "inherit" }}>{CONTACT.phone}</a></li>
+              {CONTACT.phone && <li><a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`} className="no-underline hover:text-white" style={{ color: "inherit" }}>{CONTACT.phone}</a></li>}
               {/* Add LinkedIn/GitHub links here once the profiles exist */}
             </ul>
           </div>

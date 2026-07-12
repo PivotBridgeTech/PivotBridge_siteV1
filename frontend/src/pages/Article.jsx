@@ -38,7 +38,10 @@ function ArticleBody({ body }) {
 export default function Article() {
   const { slug } = useParams();
   const idx = POSTS.findIndex((p) => p.slug === slug);
-  usePageTitle(idx === -1 ? undefined : POSTS[idx].title);
+  usePageTitle(
+    idx === -1 ? undefined : POSTS[idx].title,
+    idx === -1 ? undefined : POSTS[idx].excerpt
+  );
   if (idx === -1) return <Navigate to="/insights" replace />;
   const post = POSTS[idx];
   const prev = POSTS[(idx + POSTS.length - 1) % POSTS.length];

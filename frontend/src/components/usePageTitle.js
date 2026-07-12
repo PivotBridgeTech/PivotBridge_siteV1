@@ -1,10 +1,7 @@
-import { useEffect } from "react";
+import useSeo from "./useSeo.js";
 
-const BASE = "Pivot Bridge Technology";
-const TAGLINE = "Custom software, AI & cloud for growing businesses";
-
-export default function usePageTitle(title) {
-  useEffect(() => {
-    document.title = title ? `${title} — ${BASE}` : `${BASE} — ${TAGLINE}`;
-  }, [title]);
+// Thin wrapper kept for existing call sites. Pass a description as the second
+// argument for per-page SEO; omit it to fall back to the site default.
+export default function usePageTitle(title, description) {
+  useSeo({ title, description });
 }

@@ -3,7 +3,7 @@ import { PageHero, CTABand } from "../components/Shared.jsx";
 import usePageTitle from "../components/usePageTitle.js";
 
 export default function Industries() {
-  usePageTitle("Industries");
+  usePageTitle("Industries", "How Pivot Bridge builds and runs technology for healthcare, legal, e-commerce, logistics, finance, and creative businesses that can't afford downtime.");
   return (
     <>
       <PageHero
@@ -13,7 +13,7 @@ export default function Industries() {
       />
       <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24 flex flex-col gap-4">
         {INDUSTRIES.map(({ icon: Icon, name, pain, detail }) => (
-          <div key={name} className="card-static rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-5">
+          <div key={name} className="card-static reveal rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-5">
             <div className="md:col-span-4 flex items-start gap-3">
               <span className="inline-flex items-center justify-center w-11 h-11 rounded-md shrink-0" style={{ background: "rgba(46,102,71,0.08)" }}>
                 <Icon size={22} className="c-pine" />

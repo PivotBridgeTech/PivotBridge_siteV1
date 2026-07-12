@@ -5,7 +5,7 @@ import { PageHero, CTABand } from "../components/Shared.jsx";
 import usePageTitle from "../components/usePageTitle.js";
 
 export default function Insights() {
-  usePageTitle("Insights");
+  usePageTitle("Insights", "Plain-language reads on the technology decisions business owners actually face — cloud costs, automation readiness, and what's real versus hype in AI.");
   return (
     <>
       <PageHero

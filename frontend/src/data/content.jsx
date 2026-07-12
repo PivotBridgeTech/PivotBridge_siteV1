@@ -346,9 +346,12 @@ export const TEAM_STATEMENTS = [
 ];
 
 // Placeholder contact details — replace before launch
+// Email assumes the domain in src/seo.js (pivotbridge.tech) — update if the
+// real domain differs. `phone` is intentionally empty: set it to a real number
+// to show a phone line in the footer and contact page (both hide it when blank).
 export const CONTACT = {
-  email: "hello@pivotbridge.example",
-  phone: "+1 (555) 012-3456",
+  email: "hello@pivotbridge.tech",
+  phone: "",
   base: "Remote-first · serving clients across North America",
 };
 
