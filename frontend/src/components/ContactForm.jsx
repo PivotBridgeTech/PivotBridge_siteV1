@@ -1,8 +1,51 @@
 import { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PROJECT_TYPES } from "../data/content.jsx";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const CONFETTI_COUNT = 10;
+const CONFETTI_COLORS = ["var(--pine)", "var(--sage)", "var(--pine-deep)"];
+const CONFETTI = Array.from({ length: CONFETTI_COUNT }, (_, i) => ({
+  rot: (360 / CONFETTI_COUNT) * i,
+  color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+  delay: (i % 3) * 0.05,
+}));
+
+function SuccessBadge() {
+  return (
+    <span className="relative inline-flex items-center justify-center" style={{ width: 56, height: 56 }}>
+      <span
+        className="success-glow absolute inset-0 rounded-full"
+        style={{ background: "radial-gradient(circle, color-mix(in srgb, var(--pine) 35%, transparent), transparent 70%)" }}
+        aria-hidden="true"
+      />
+      {CONFETTI.map((c, i) => (
+        <span
+          key={i}
+          className="confetti-piece"
+          style={{ "--rot": `${c.rot}deg`, animationDelay: `${0.35 + c.delay}s`, width: 5, height: 5, borderRadius: 1, background: c.color }}
+          aria-hidden="true"
+        />
+      ))}
+      <span
+        className="check-circle relative inline-flex items-center justify-center rounded-full"
+        style={{ width: 48, height: 48, background: "color-mix(in srgb, var(--pine) 10%, transparent)" }}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            className="check-path"
+            d="M5 13l4 4L19 7"
+            stroke="var(--pine)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
+    </span>
+  );
+}
 
 function encodeForm(data) {
   return Object.keys(data)
@@ -58,11 +101,9 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <div className="h-full flex flex-col items-center justify-center text-center py-12">
-        <span className="inline-flex items-center justify-center w-12 h-12 rounded-full" style={{ background: "rgba(46,102,71,0.1)" }}>
-          <Check size={24} className="c-pine" />
-        </span>
-        <h3 className="f-display font-bold text-xl mt-4">Message sent</h3>
-        <p className="c-steel text-sm mt-2 max-w-xs">We reply within one business day — keep an eye on your inbox.</p>
+        <SuccessBadge />
+        <h3 className="f-display font-bold text-xl mt-4 fadeUp fadeUp-5">Message sent</h3>
+        <p className="c-steel text-sm mt-2 max-w-xs fadeUp fadeUp-7">We reply within one business day, keep an eye on your inbox.</p>
       </div>
     );
   }
@@ -73,7 +114,7 @@ export default function ContactForm() {
         <label className="flex flex-col gap-1.5">
           <span className="f-mono text-xs c-steel tracking-widest uppercase">Name</span>
           <input
-            className="field rounded-md px-3.5 py-2.5 text-sm" name="name" autoComplete="name"
+            className="field rounded-md px-3.5 py-2.5 text-sm" name="name" autoComplete="name" maxLength={200}
             value={form.name} onChange={update("name")} placeholder="Alex Morgan"
             aria-invalid={invalid.name || undefined}
           />
@@ -81,7 +122,7 @@ export default function ContactForm() {
         <label className="flex flex-col gap-1.5">
           <span className="f-mono text-xs c-steel tracking-widest uppercase">Company</span>
           <input
-            className="field rounded-md px-3.5 py-2.5 text-sm" name="organization" autoComplete="organization"
+            className="field rounded-md px-3.5 py-2.5 text-sm" name="organization" autoComplete="organization" maxLength={200}
             value={form.company} onChange={update("company")} placeholder="Morgan Supply Co."
           />
         </label>
@@ -89,7 +130,7 @@ export default function ContactForm() {
       <label className="flex flex-col gap-1.5">
         <span className="f-mono text-xs c-steel tracking-widest uppercase">Email</span>
         <input
-          type="email" className="field rounded-md px-3.5 py-2.5 text-sm" name="email" autoComplete="email"
+          type="email" className="field rounded-md px-3.5 py-2.5 text-sm" name="email" autoComplete="email" maxLength={320}
           value={form.email} onChange={update("email")} placeholder="alex@morgansupply.com"
           aria-invalid={invalid.email || undefined}
         />
@@ -103,7 +144,7 @@ export default function ContactForm() {
       <label className="flex flex-col gap-1.5">
         <span className="f-mono text-xs c-steel tracking-widest uppercase">Message</span>
         <textarea
-          rows={4} className="field rounded-md px-3.5 py-2.5 text-sm resize-none" name="message"
+          rows={4} className="field rounded-md px-3.5 py-2.5 text-sm resize-none" name="message" maxLength={5000}
           value={form.message} onChange={update("message")} placeholder="What's the problem you're trying to solve?"
           aria-invalid={invalid.message || undefined}
         />
@@ -114,7 +155,7 @@ export default function ContactForm() {
         style={{ position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0 }}
         tabIndex={-1} autoComplete="off" aria-hidden="true" name="bot-field"
       />
-      {error && <p className="text-sm" role="alert" style={{ color: "#B4322A" }}>{error}</p>}
+      {error && <p className="text-sm" role="alert" style={{ color: "var(--error)" }}>{error}</p>}
       <button type="submit" disabled={status === "sending"} className="btn-primary font-semibold px-6 py-3 rounded-md inline-flex items-center justify-center gap-2 mt-1" style={{ opacity: status === "sending" ? 0.7 : 1 }}>
         {status === "sending" ? "Sending…" : "Send message"} <ArrowRight size={17} />
       </button>

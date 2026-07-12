@@ -1,7 +1,10 @@
+import { useRef } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { POSTS } from "../data/content.jsx";
 import { Eyebrow, CTABand } from "../components/Shared.jsx";
+import Reveal from "../components/Reveal.jsx";
+import ReadingProgress from "../components/ReadingProgress.jsx";
 import usePageTitle from "../components/usePageTitle.js";
 
 // Inline markup: **bold** and *italic*.
@@ -43,29 +46,34 @@ export default function Article() {
   const post = POSTS[idx];
   const prev = POSTS[(idx + POSTS.length - 1) % POSTS.length];
   const next = POSTS[(idx + 1) % POSTS.length];
+  const articleRef = useRef(null);
 
   return (
     <>
+      <ReadingProgress targetRef={articleRef} />
       <section className="hero-glow relative overflow-hidden">
         <div className="relative max-w-3xl mx-auto px-5 pt-14 pb-10 md:pt-20 md:pb-12">
-          <Link to="/insights" className="navlink inline-flex items-center gap-1.5 no-underline rise rise-1">
+          <Link to="/insights" className="navlink inline-flex items-center gap-1.5 no-underline fadeUp fadeUp-1">
             <ArrowLeft size={14} /> All insights
           </Link>
-          <span className="rise rise-1 block mt-6"><Eyebrow>{post.tag}</Eyebrow></span>
-          <h1 className="f-display font-extrabold tracking-tight text-3xl md:text-4xl lg:text-5xl mt-4 rise rise-2" style={{ lineHeight: 1.1 }}>
+          <span className="fadeUp fadeUp-1 block mt-6"><Eyebrow>{post.tag}</Eyebrow></span>
+          <h1 className="f-display font-extrabold tracking-tight text-3xl md:text-4xl lg:text-5xl mt-4 fadeUp fadeUp-2" style={{ lineHeight: 1.1 }}>
             {post.title}
           </h1>
-          <p className="f-mono text-xs c-steel tracking-widest mt-5 rise rise-3">
+          <p className="f-mono text-xs c-steel tracking-widest mt-5 fadeUp fadeUp-3">
             {post.date} · {post.readTime}
           </p>
+          <div className="img-card rounded-lg mt-8 fadeUp fadeUp-4" style={{ aspectRatio: "21 / 8" }}>
+            <img src={post.image} alt={post.imageAlt} loading="lazy" />
+          </div>
         </div>
       </section>
 
-      <article className="max-w-3xl mx-auto px-5 pb-16 md:pb-20">
+      <Reveal as="article" ref={articleRef} className="max-w-3xl mx-auto px-5 pb-16 md:pb-20">
         <ArticleBody body={post.body} />
-      </article>
+      </Reveal>
 
-      <section className="max-w-3xl mx-auto px-5 pb-16">
+      <Reveal as="section" className="max-w-3xl mx-auto px-5 pb-16">
         <div className="grid sm:grid-cols-2 gap-4">
           <Link to={`/insights/${prev.slug}`} className="card rounded-lg p-5 text-left flex items-center gap-3 no-underline" style={{ color: "var(--ink)" }}>
             <ArrowLeft size={18} className="c-steel shrink-0" />
@@ -82,7 +90,7 @@ export default function Article() {
             <ArrowRight size={18} className="c-steel shrink-0" />
           </Link>
         </div>
-      </section>
+      </Reveal>
       <CTABand />
     </>
   );

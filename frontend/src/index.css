@@ -2,7 +2,8 @@
 
 :root {
   --ink: #1C2B22; --paper: #F7F9F6; --pine: #2E6647; --pine-deep: #234E36;
-  --sage: #94BFA2; --steel: #5D6E63; --line: rgba(28, 43, 34, 0.12);
+  --sage: #94BFA2; --steel: #46534B; --line: rgba(28, 43, 34, 0.12);
+  --error: #B4322A;
 }
 
 body { background: var(--paper); color: var(--ink); font-family: 'Manrope', system-ui, sans-serif; }
@@ -11,6 +12,12 @@ body { background: var(--paper); color: var(--ink); font-family: 'Manrope', syst
 .c-steel { color: var(--steel); } .c-pine { color: var(--pine); } .c-sage { color: var(--sage); }
 .bg-ink { background: var(--ink); } .bg-paper { background: var(--paper); }
 .bd-line { border-color: var(--line); }
+
+.reading-progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; background: transparent; }
+.reading-progress-fill { height: 100%; width: 100%; background: var(--pine); transform-origin: left; will-change: transform; }
+
+.nav-header { transition: box-shadow .3s ease, border-color .3s ease; }
+.nav-scrolled { box-shadow: 0 8px 24px -16px rgba(28, 43, 34, 0.25); border-color: rgba(28, 43, 34, 0.18); }
 
 .hero-glow {
   background:
@@ -22,18 +29,49 @@ body { background: var(--paper); color: var(--ink); font-family: 'Manrope', syst
     radial-gradient(50% 40% at 15% 0%, rgba(46,102,71,0.25), transparent 70%),
     radial-gradient(40% 35% at 90% 100%, rgba(148,191,162,0.10), transparent 70%);
 }
-.btn-primary { background: var(--pine); color: #fff; border: none; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.btn-primary { background: var(--pine); color: #fff; border: none; cursor: pointer; transition: all 0.3s ease; }
 .btn-primary:hover { background: var(--pine-deep); transform: translateY(-1px); }
-.btn-ghost { color: var(--ink); border: 1px solid var(--ink); background: none; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.btn-primary:active { transform: scale(0.97); }
+.btn-primary:hover:active { transform: translateY(-1px) scale(0.97); }
+.btn-ghost { color: var(--ink); border: 1px solid var(--ink); background: none; cursor: pointer; transition: all 0.3s ease; }
 .btn-ghost:hover { background: var(--ink); color: var(--paper); }
-.card { background: #fff; border: 1px solid var(--line); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
-.card:hover { border-color: var(--pine); transform: translateY(-3px); box-shadow: 0 12px 32px -16px rgba(46, 102, 71, 0.35); }
+.btn-ghost:active { transform: scale(0.97); }
+.card { background: #fff; border: 1px solid var(--line); transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease; }
+.card:hover { border-color: var(--pine); transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(46, 102, 71, 0.4); }
 .card-static { background: #fff; border: 1px solid var(--line); }
-.rise { opacity: 0; transform: translateY(14px); animation: rise .7s ease-out forwards; }
-.rise-1 { animation-delay: .05s } .rise-2 { animation-delay: .18s } .rise-3 { animation-delay: .3s } .rise-4 { animation-delay: .42s }
-@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+.card-icon { transition: transform .3s ease; }
+.card:hover .card-icon { transform: scale(1.08); }
+
+.fadeUp { opacity: 0; animation: fadeUp .7s ease-out forwards; }
+.fadeUp-1 { animation-delay: .05s } .fadeUp-2 { animation-delay: .18s } .fadeUp-3 { animation-delay: .3s }
+.fadeUp-4 { animation-delay: .42s } .fadeUp-5 { animation-delay: .5s } .fadeUp-6 { animation-delay: .54s } .fadeUp-7 { animation-delay: .6s }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease-out, transform .7s ease-out; }
+.reveal-visible { opacity: 1; transform: translateY(0); }
+/* .card's own hover transition (border-color/box-shadow/transform) has equal specificity to
+   .reveal's transition shorthand; without this, whichever rule is later in the stylesheet wins
+   outright and the other's transition-property list is silently dropped, not merged. */
+.reveal.card { transition: opacity .7s ease-out, transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+
+.reveal-child { opacity: 0; transform: translateY(20px); transition: opacity .7s ease-out, transform .7s ease-out; }
+.reveal-visible .reveal-child { opacity: 1; transform: translateY(0); }
+
+.check-circle { animation: checkPop .5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes checkPop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.check-path { stroke-dasharray: 24; stroke-dashoffset: 24; animation: checkDraw .4s ease-out .3s forwards; }
+@keyframes checkDraw { to { stroke-dashoffset: 0; } }
+.success-glow { opacity: 0; animation: successGlow 1.6s ease-out .1s forwards; }
+@keyframes successGlow { 0% { opacity: 0; transform: scale(0.6); } 40% { opacity: .5; } 100% { opacity: 0; transform: scale(1.8); } }
+.confetti-piece { position: absolute; left: 50%; top: 50%; opacity: 0; animation: confettiBurst .8s ease-out forwards; }
+@keyframes confettiBurst {
+  0% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) translateY(0) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) translateY(-60px) scale(0.4); }
+}
 .field { background: #fff; border: 1px solid var(--line); color: var(--ink); transition: border-color .2s ease, box-shadow .2s ease; }
 .field:focus { outline: none; border-color: var(--pine); box-shadow: 0 0 0 3px rgba(46,102,71,.15); }
+.field[aria-invalid="true"] { border-color: var(--error); }
+.field[aria-invalid="true"]:focus { box-shadow: 0 0 0 3px rgba(180,50,42,.15); }
 a:focus-visible, button:focus-visible, .field:focus-visible { outline: 2px solid var(--pine); outline-offset: 2px; }
 .navlink { color: var(--steel); transition: color .2s; background: none; border: none; cursor: pointer; font-size: 0.875rem; padding: 0; font-family: inherit; text-decoration: none; }
 .navlink:hover, .navlink.active { color: var(--pine); }
@@ -41,7 +79,49 @@ a:focus-visible, button:focus-visible, .field:focus-visible { outline: 2px solid
 .painbtn:hover { border-color: var(--pine); }
 .painbtn.on { border-color: var(--pine); background: rgba(46,102,71,0.06); }
 
+/* Image-led cards: photo with a bottom scrim for overlaid text, gentle
+   zoom on hover. Used for insight/case cards and the home hero/bento tiles. */
+.img-card { position: relative; overflow: hidden; background: var(--ink); }
+.img-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1); }
+.img-card:hover img, .bento-tile:hover img { transform: scale(1.06); }
+.img-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,43,34,0) 30%, rgba(28,43,34,0.35) 55%, rgba(28,43,34,0.78) 78%, rgba(28,43,34,0.84) 100%); pointer-events: none; }
+.img-pill {
+  display: inline-flex; align-items: center; padding: 0.32rem 0.75rem; border-radius: 999px;
+  background: rgba(255,255,255,0.16); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+/* Belt-and-suspenders legibility for white text sitting directly on a photo:
+   the gradient scrim can't guarantee it beats every bright patch in every
+   source photo, so overlaid headings also get a soft drop shadow. */
+.on-photo { text-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 4px 14px rgba(0,0,0,0.45); }
+
+/* Home hero image panel: a static photo, not a link (no hover/click
+   affordance, since it carries no functionality). */
+.hero-panel { position: relative; overflow: hidden; border-radius: 1rem; }
+.hero-panel img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Bento feature tiles: full-bleed photo, dark scrim, content pinned to the
+   bottom. Same visual family as .img-card, sized for the featured-links grid. */
+.bento-tile { position: relative; overflow: hidden; border-radius: 1rem; color: #fff; display: flex; flex-direction: column; justify-content: flex-end; text-decoration: none; }
+.bento-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1); }
+/* Steeper than a linear ramp: stays clear over the top ~40% of the photo but is
+   already near-solid by the point the text block starts, regardless of how
+   bright the underlying photo is at that height. */
+.bento-tile::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,43,34,0) 0%, rgba(28,43,34,0.15) 32%, rgba(28,43,34,0.8) 58%, rgba(28,43,34,0.86) 100%); }
+.bento-tile-content { position: relative; z-index: 1; padding: 1.5rem; }
+
+/* Mobile nav: grid-rows 0fr->1fr instead of an instant mount, so the menu
+   opens and closes rather than popping. Grid-track animation (not max-height)
+   avoids guessing a height and avoids layout-thrash on every frame. */
+.mobile-nav { display: grid; grid-template-rows: 0fr; opacity: 0; pointer-events: none; transition: grid-template-rows .4s cubic-bezier(0.16, 1, 0.3, 1), opacity .25s ease; }
+.mobile-nav.open { grid-template-rows: 1fr; opacity: 1; pointer-events: auto; }
+.mobile-nav > div { overflow: hidden; }
+
 @media (prefers-reduced-motion: reduce) {
-  .rise { animation: none; opacity: 1; transform: none; }
-  .card:hover, .btn-primary:hover { transform: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
