@@ -60,8 +60,9 @@ body { background: var(--paper); color: var(--ink); font-family: 'Manrope', syst
 .card:hover .card-arrow { transform: translateX(3px); }
 .card-static { background: #fff; border: 1px solid var(--line); }
 
-/* Brand mark: rotating it 180° maps P→B — the "pivot" made literal */
-.logo-mark { transition: transform .7s cubic-bezier(.65, 0, .35, 1); }
+/* Brand mark: rotating it 180° maps P→B — the "pivot" made literal.
+   Rotate around the element's own center so it spins in place. */
+.logo-mark { transition: transform .7s cubic-bezier(.65, 0, .35, 1); transform-origin: center; transform-box: fill-box; }
 a:hover .logo-mark { transform: rotate(180deg); }
 
 /* Sticky nav gains depth once the page scrolls */

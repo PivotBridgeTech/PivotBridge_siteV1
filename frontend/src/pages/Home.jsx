@@ -7,6 +7,7 @@ import { SERVICES, INDUSTRIES } from "../data/content.jsx";
 import { Eyebrow } from "../components/Shared.jsx";
 import ContactForm from "../components/ContactForm.jsx";
 import FitFinder from "../components/FitFinder.jsx";
+import HeroGraphic from "../components/HeroGraphic.jsx";
 import usePageTitle from "../components/usePageTitle.js";
 
 // Which industries get a card on the homepage (full list lives on /industries)
@@ -29,20 +30,27 @@ export default function Home() {
     <>
       <section className="relative overflow-hidden hero-glow">
         <div className="relative max-w-6xl mx-auto px-5 pt-14 pb-12 md:pt-20 md:pb-16">
-          <span className="rise rise-1 block"><Eyebrow>Pivot Bridge Technology · Custom software for growing businesses</Eyebrow></span>
-          <h1 className="f-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-5 max-w-4xl rise rise-2" style={{ lineHeight: 1.04 }}>
-            Stop fighting your tools. Start growing your business.
-          </h1>
-          <p className="mt-6 max-w-2xl text-base md:text-lg c-steel rise rise-3">
-            We design and build the AI tools, custom software, and automations that take technology off your plate — then we run the infrastructure behind them. You name the bottleneck. We remove it.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 rise rise-3">
-            <Link to="/contact" className="btn-primary inline-flex items-center justify-center gap-2 font-semibold px-6 py-3.5 rounded-md no-underline">
-              Book a consultation <ArrowRight size={18} />
-            </Link>
-            <Link to="/work" className="btn-ghost inline-flex items-center justify-center gap-2 font-semibold px-6 py-3.5 rounded-md no-underline">
-              View our work
-            </Link>
+          <div className="grid lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-8 items-center">
+            <div>
+              <span className="rise rise-1 block"><Eyebrow>Pivot Bridge Technology · Custom software for growing businesses</Eyebrow></span>
+              <h1 className="f-display font-extrabold tracking-tight text-4xl sm:text-5xl md:text-6xl mt-5 max-w-3xl rise rise-2" style={{ lineHeight: 1.05 }}>
+                Stop fighting your tools. Start growing your business.
+              </h1>
+              <p className="mt-6 max-w-2xl text-base md:text-lg c-steel rise rise-3">
+                We design and build the AI tools, custom software, and automations that take technology off your plate — then we run the infrastructure behind them. You name the bottleneck. We remove it.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 rise rise-3">
+                <Link to="/contact" className="btn-primary inline-flex items-center justify-center gap-2 font-semibold px-6 py-3.5 rounded-md no-underline">
+                  Book a consultation <ArrowRight size={18} />
+                </Link>
+                <Link to="/work" className="btn-ghost inline-flex items-center justify-center gap-2 font-semibold px-6 py-3.5 rounded-md no-underline">
+                  View our work
+                </Link>
+              </div>
+            </div>
+            <div className="hidden lg:block rise rise-4" aria-hidden="false">
+              <HeroGraphic />
+            </div>
           </div>
           <div className="mt-10 md:mt-12 grid sm:grid-cols-3 gap-4 rise rise-4">
             {TRUST.map(({ icon: Icon, title, body }) => (
