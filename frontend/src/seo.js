@@ -7,5 +7,5 @@ export const SITE_URL = "https://pivotbridge.tech"; // TODO: confirm final domai
 export const SITE_NAME = "Pivot Bridge Technology";
 export const TAGLINE = "Custom software, AI & cloud for growing businesses";
 export const DEFAULT_DESCRIPTION =
-  "Custom AI tools, software, workflow automation, and managed cloud infrastructure for small and medium businesses.";
+  "Custom AI tools, software, workflow automation, and managed cloud infrastructure for growing businesses.";
 export const OG_IMAGE = `${SITE_URL}/og-image.png`;

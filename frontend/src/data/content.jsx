@@ -302,14 +302,14 @@ A real proposal answers all three without flinching. That's the whole test. The 
 export const MISSION = {
   eyebrow: "Why we exist",
   // The `highlight` phrase renders in the pine accent inside the headline.
-  lead: "Small and medium businesses shouldn’t have to choose between ",
+  lead: "Growing businesses shouldn’t have to choose between ",
   highlight: "fighting their tools",
   rest: " and growing their company.",
   body:
     "We take technology off your plate — the custom apps, the AI, the automations, the servers — and give you back the time, money, and peace of mind it was costing you, so you can focus on running the business only you can run.",
   statementLabel: "Our mission",
   statement:
-    "Pivot Bridge Technology designs, builds, and runs the custom software, AI tools, and automations that give small and medium businesses the capabilities of companies ten times their size — explained in plain language, owned by you outright, and only built when it returns more than it costs.",
+    "Pivot Bridge Technology designs, builds, and runs the custom software, AI tools, and automations that give growing businesses the capabilities of companies ten times their size — explained in plain language, owned by you outright, and only built when it returns more than it costs.",
 };
 
 export const TEAM_STATEMENTS = [

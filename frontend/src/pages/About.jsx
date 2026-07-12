@@ -15,13 +15,13 @@ const NOT_FOR = [
 ];
 
 export default function About() {
-  usePageTitle("About", "Meet the team behind Pivot Bridge Technology — the engineering partner for small and medium businesses that need enterprise-grade software, AI, and cloud without an in-house department.");
+  usePageTitle("About", "Meet the team behind Pivot Bridge Technology — the engineering partner for growing businesses that need enterprise-grade software, AI, and cloud without an in-house department.");
   return (
     <>
       <PageHero
         eyebrow="About"
         title="The engineering team you don't have to hire."
-        intro="Pivot Bridge Technology exists for one kind of client: the small or medium business that knows technology could be moving their numbers, but doesn't have — and shouldn't need — an in-house engineering department."
+        intro="Pivot Bridge Technology exists for one kind of client: the growing business that knows technology could be moving their numbers, but doesn't have — and shouldn't need — an in-house engineering department."
       />
 
       {/* Mission — contained band, two columns */}

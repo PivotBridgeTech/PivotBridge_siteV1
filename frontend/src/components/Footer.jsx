@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <Logo light size={48} />
             <p className="text-sm mt-3 max-w-xs" style={{ color: "#94A69A" }}>
-              Custom software, AI tools, and managed infrastructure for small and medium businesses.
+              Custom software, AI tools, and managed infrastructure for growing businesses.
             </p>
           </div>
           <div>
