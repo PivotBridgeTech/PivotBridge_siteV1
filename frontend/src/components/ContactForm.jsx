@@ -109,7 +109,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="flex flex-col gap-4" onSubmit={submit} noValidate>
+    <form className="flex flex-col gap-4" name="contact" method="POST" onSubmit={submit} noValidate>
+      <input type="hidden" name="form-name" value="contact" />
       <div className="grid sm:grid-cols-2 gap-4">
         <label className="flex flex-col gap-1.5">
           <span className="f-mono text-xs c-steel tracking-widest uppercase">Name</span>
@@ -122,7 +123,7 @@ export default function ContactForm() {
         <label className="flex flex-col gap-1.5">
           <span className="f-mono text-xs c-steel tracking-widest uppercase">Company</span>
           <input
-            className="field rounded-md px-3.5 py-2.5 text-sm" name="organization" autoComplete="organization" maxLength={200}
+            className="field rounded-md px-3.5 py-2.5 text-sm" name="company" autoComplete="organization" maxLength={200}
             value={form.company} onChange={update("company")} placeholder="Morgan Supply Co."
           />
         </label>
