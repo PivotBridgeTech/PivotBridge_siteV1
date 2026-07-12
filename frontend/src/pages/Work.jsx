@@ -11,7 +11,7 @@ export default function Work() {
         title="Built, shipped, and running in real businesses."
         intro="Engagements across industries that show how we work: find the expensive problem, build the smallest system that solves it, and leave the client owning everything."
       />
-      <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24 flex flex-col gap-4">
+      <section className="max-w-6xl mx-auto px-5 pb-12 md:pb-16 flex flex-col gap-4">
         {CASES.map((c) => (
           <article key={c.title} className="card-static reveal rounded-lg p-6 md:p-8">
             <p className="f-mono text-xs c-pine tracking-widest">{c.industry}</p>

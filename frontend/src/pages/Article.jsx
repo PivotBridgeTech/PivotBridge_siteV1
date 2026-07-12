@@ -74,7 +74,7 @@ export default function Article() {
   return (
     <>
       <section className="hero-glow relative overflow-hidden">
-        <div className="relative max-w-3xl mx-auto px-5 pt-14 pb-10 md:pt-20 md:pb-12">
+        <div className="relative max-w-3xl mx-auto px-5 pt-10 pb-8 md:pt-14 md:pb-10">
           <Link to="/insights" className="navlink inline-flex items-center gap-1.5 no-underline rise rise-1">
             <ArrowLeft size={14} /> All insights
           </Link>
@@ -88,11 +88,11 @@ export default function Article() {
         </div>
       </section>
 
-      <article className="max-w-3xl mx-auto px-5 pb-16 md:pb-20">
+      <article className="max-w-3xl mx-auto px-5 pb-12 md:pb-14">
         <ArticleBody body={post.body} />
       </article>
 
-      <section className="max-w-3xl mx-auto px-5 pb-16">
+      <section className="max-w-3xl mx-auto px-5 pb-12">
         <div className="grid sm:grid-cols-2 gap-4">
           <Link to={`/insights/${prev.slug}`} className="card rounded-lg p-5 text-left flex items-center gap-3 no-underline" style={{ color: "var(--ink)" }}>
             <ArrowLeft size={18} className="c-steel shrink-0" />

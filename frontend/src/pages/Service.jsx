@@ -40,10 +40,10 @@ export default function Service() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-5 py-12 md:py-16">
+      <section className="max-w-6xl mx-auto px-5 py-10 md:py-12">
         <Eyebrow>How it works</Eyebrow>
         <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">From first call to running system.</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
           {PROCESS.map(({ icon: PIcon, name, body }, i) => (
             <div key={name} className="card-static rounded-lg p-6">
               <div className="flex items-center justify-between">

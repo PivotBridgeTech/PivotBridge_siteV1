@@ -5,7 +5,7 @@ import Logo from "./Logo.jsx";
 export default function Footer() {
   return (
     <footer className="bg-ink">
-      <div className="max-w-6xl mx-auto px-5 py-12 md:py-16">
+      <div className="max-w-6xl mx-auto px-5 py-10 md:py-12">
         <div className="grid sm:grid-cols-4 gap-10">
           <div>
             <Logo light size={48} />

@@ -13,7 +13,7 @@ export default function Insights() {
         title="Plain-language answers to expensive questions."
         intro="Short, practical reads on the technology decisions business owners actually face — written to be useful before you ever talk to us."
       />
-      <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24">
+      <section className="max-w-6xl mx-auto px-5 pb-12 md:pb-16">
         <div className="grid md:grid-cols-3 gap-4">
           {POSTS.map((p, i) => (
             <Link

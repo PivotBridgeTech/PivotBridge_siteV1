@@ -6,7 +6,7 @@ export default function NotFound() {
   usePageTitle("Page not found");
   return (
     <section className="hero-glow">
-      <div className="max-w-6xl mx-auto px-5 py-24 md:py-36 text-center">
+      <div className="max-w-6xl mx-auto px-5 py-16 md:py-24 text-center">
         <p className="f-mono text-xs c-pine tracking-widest uppercase">404</p>
         <h1 className="f-display font-extrabold tracking-tight text-4xl md:text-5xl mt-4">
           That page doesn't exist.

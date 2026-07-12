@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden hero-glow">
-        <div className="relative max-w-6xl mx-auto px-5 pt-14 pb-12 md:pt-20 md:pb-16">
+        <div className="relative max-w-6xl mx-auto px-5 pt-10 pb-10 md:pt-14 md:pb-12">
           <div className="grid lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-8 items-center">
             <div>
               <span className="rise rise-1 block"><Eyebrow>Pivot Bridge Technology · Custom software for growing businesses</Eyebrow></span>
@@ -52,7 +52,7 @@ export default function Home() {
               <HeroGraphic />
             </div>
           </div>
-          <div className="mt-10 md:mt-12 grid sm:grid-cols-3 gap-4 rise rise-4">
+          <div className="mt-8 md:mt-10 grid sm:grid-cols-3 gap-4 rise rise-4">
             {TRUST.map(({ icon: Icon, title, body }) => (
               <div key={title} className="card-static rounded-lg p-5 flex flex-col gap-2.5">
                 <div className="flex items-center gap-2.5">
@@ -66,14 +66,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-5 py-12 md:py-16">
+      <section className="max-w-6xl mx-auto px-5 py-10 md:py-12">
         <div className="reveal">
           <Eyebrow>Services</Eyebrow>
           <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-xl">
             Four ways we take work off your plate.
           </h2>
         </div>
-        <div className="grid sm:grid-cols-2 gap-4 mt-8">
+        <div className="grid sm:grid-cols-2 gap-4 mt-6">
           {SERVICES.map(({ slug, icon: Icon, tag, title, short }, i) => (
             <Link key={slug} to={`/services/${slug}`} className={`card reveal reveal-d${i % 2 === 1 ? 2 : 1} rounded-lg p-6 md:p-8 text-left no-underline`} style={{ color: "var(--ink)" }}>
               <div className="flex items-center justify-between">
@@ -94,14 +94,14 @@ export default function Home() {
       </section>
 
       <section className="border-t bd-line" style={{ background: "#ECF2ED" }}>
-        <div className="max-w-6xl mx-auto px-5 py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-5 py-10 md:py-12">
           <div className="reveal">
             <Eyebrow>Industries we serve</Eyebrow>
             <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-2xl">
               Built for markets that run on servers.
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
             {INDUSTRIES.filter(({ name }) => HOME_INDUSTRY_NAMES.includes(name)).map(({ icon: Icon, name, pain }, i) => (
               <div key={name} className={`card-static reveal reveal-d${(i % 4) + 1} rounded-lg p-6`}>
                 <div className="flex items-center gap-3">
@@ -122,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-5 py-12 md:py-20">
+      <section className="max-w-6xl mx-auto px-5 py-10 md:py-14">
         <div className="reveal">
           <Eyebrow>Start a project</Eyebrow>
           <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-2xl">

@@ -13,7 +13,7 @@ export default function Contact() {
         title="Tell us the bottleneck. We'll bring the plan."
         intro="Every project starts with a free 30-minute consultation. No pitch deck, no jargon — a straight conversation about what's slowing you down and what it would take to fix it."
       />
-      <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24">
+      <section className="max-w-6xl mx-auto px-5 pb-12 md:pb-16">
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="card-static rounded-lg p-6 md:p-8"><ContactForm /></div>
           <div className="flex flex-col gap-4">
@@ -38,7 +38,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="mt-14">
+        <div className="mt-10">
           <Eyebrow>Common questions</Eyebrow>
           <div className="grid md:grid-cols-2 gap-4 mt-6">
             {FAQS.map((f) => (

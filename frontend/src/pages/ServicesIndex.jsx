@@ -14,7 +14,7 @@ export default function ServicesIndex() {
         title="Four ways we take work off your plate."
         intro="Every service below follows the same rule: it has to return more than it costs, in hours saved or revenue created. If a project can't clear that bar, we'll tell you before you spend a dollar."
       />
-      <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24">
+      <section className="max-w-6xl mx-auto px-5 pb-12 md:pb-16">
         <FitFinder />
         <div className="grid sm:grid-cols-2 gap-4 mt-6">
           {SERVICES.map(({ slug, icon: Icon, tag, title, short }, i) => (

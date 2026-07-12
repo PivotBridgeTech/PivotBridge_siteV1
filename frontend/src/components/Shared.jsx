@@ -8,7 +8,7 @@ export const Eyebrow = ({ children, light }) => (
 export const CTABand = () => (
   <section className="bg-ink relative overflow-hidden">
     <div className="absolute inset-0 dark-glow" aria-hidden="true" />
-    <div className="relative max-w-6xl mx-auto px-5 py-14 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div className="relative max-w-6xl mx-auto px-5 py-10 md:py-14 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
       <div>
         <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight text-white max-w-lg">
           Tell us the bottleneck. We'll bring the plan.
@@ -31,7 +31,7 @@ export const PageHero = ({ eyebrow, title, intro, watermark: Watermark }) => (
         <Watermark size={280} />
       </div>
     )}
-    <div className="relative max-w-6xl mx-auto px-5 pt-14 pb-10 md:pt-20 md:pb-14">
+    <div className="relative max-w-6xl mx-auto px-5 pt-10 pb-8 md:pt-14 md:pb-10">
       <span className="rise rise-1 block"><Eyebrow>{eyebrow}</Eyebrow></span>
       <h1 className="f-display font-extrabold tracking-tight text-4xl md:text-5xl lg:text-6xl mt-4 max-w-3xl rise rise-2" style={{ lineHeight: 1.06 }}>
         {title}

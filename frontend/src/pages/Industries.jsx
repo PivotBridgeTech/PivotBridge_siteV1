@@ -11,7 +11,7 @@ export default function Industries() {
         title="Built for markets that run on servers."
         intro="If your business stops when a system goes down, infrastructure isn't an IT expense — it's the floor everything else stands on. Here's how that plays out in the markets we serve."
       />
-      <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24 flex flex-col gap-4">
+      <section className="max-w-6xl mx-auto px-5 pb-12 md:pb-16 flex flex-col gap-4">
         {INDUSTRIES.map(({ icon: Icon, name, pain, detail }) => (
           <div key={name} className="card-static reveal rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-5">
             <div className="md:col-span-4 flex items-start gap-3">

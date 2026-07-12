@@ -26,7 +26,7 @@ export default function About() {
 
       {/* Mission — contained band, two columns */}
       <section className="border-y bd-line" style={{ background: "#ECF2ED" }}>
-        <div className="max-w-6xl mx-auto px-5 py-14 md:py-20 grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+        <div className="max-w-6xl mx-auto px-5 py-10 md:py-14 grid md:grid-cols-2 gap-10 md:gap-14 items-start">
           <div>
             <Eyebrow>{MISSION.eyebrow}</Eyebrow>
             <h2 className="f-display font-extrabold text-2xl md:text-3xl lg:text-4xl tracking-tight mt-3" style={{ lineHeight: 1.15 }}>
@@ -44,12 +44,12 @@ export default function About() {
       </section>
 
       {/* Leadership — one contained card per person */}
-      <section className="max-w-6xl mx-auto px-5 py-16 md:py-20">
+      <section className="max-w-6xl mx-auto px-5 py-10 md:py-14">
         <Eyebrow>Leadership</Eyebrow>
         <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">
           The people you'll actually work with.
         </h2>
-        <div className="flex flex-col gap-4 mt-8">
+        <div className="flex flex-col gap-4 mt-6">
           {TEAM_STATEMENTS.map((p) => (
             <article key={p.name} className="card-static reveal rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-6">
               <div className="md:col-span-3 flex md:flex-col items-center md:items-start gap-3.5">
@@ -79,10 +79,10 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="max-w-6xl mx-auto px-5 pb-16">
+      <section className="max-w-6xl mx-auto px-5 pb-12">
         <Eyebrow>What we stand by</Eyebrow>
         <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">Three rules we don't break.</h2>
-        <div className="grid md:grid-cols-3 gap-4 mt-8">
+        <div className="grid md:grid-cols-3 gap-4 mt-6">
           {VALUES.map((v) => (
             <div key={v.title} className="card-static rounded-lg p-6 md:p-7">
               <h3 className="f-display font-bold text-lg">{v.title}</h3>
@@ -93,10 +93,10 @@ export default function About() {
       </section>
 
       {/* Process */}
-      <section className="max-w-6xl mx-auto px-5 pb-16">
+      <section className="max-w-6xl mx-auto px-5 pb-12">
         <Eyebrow>How we work</Eyebrow>
         <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">Four steps, no surprises.</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
           {PROCESS.map(({ icon: PIcon, name, body }, i) => (
             <div key={name} className="card-static rounded-lg p-6">
               <div className="flex items-center justify-between">
@@ -113,7 +113,7 @@ export default function About() {
       </section>
 
       {/* The honest part */}
-      <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24">
+      <section className="max-w-6xl mx-auto px-5 pb-12 md:pb-16">
         <div className="card-static rounded-lg p-6 md:p-8" style={{ borderColor: "var(--ink)", borderWidth: 1.5 }}>
           <Eyebrow>The honest part</Eyebrow>
           <h2 className="f-display font-bold text-2xl md:text-3xl tracking-tight mt-3">Who we're not for.</h2>
