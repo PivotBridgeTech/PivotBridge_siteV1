@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     notify_email: str = ""
     # Enables the /api/chat assistant when set; chat is disabled when empty.
     anthropic_api_key: str = ""
+    # Haiku keeps a public, unauthenticated endpoint cheap and fast. Set
+    # CHAT_MODEL=claude-opus-4-8 (or any Claude model id) for richer replies.
+    chat_model: str = "claude-haiku-4-5"
 
     class Config:
         env_file = ".env"

@@ -17,7 +17,9 @@ import useScrollReveal from "./components/useScrollReveal.js";
 
 function RouteWatcher() {
   const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo({ top: 0 }); }, [pathname]);
+  // "instant" overrides the CSS scroll-behavior: smooth, which would
+  // otherwise animate the jump to top on every route change.
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [pathname]);
   useScrollReveal(pathname);
   return null;
 }

@@ -35,12 +35,12 @@ export default function Nav() {
             Book a consultation
           </Link>
         </nav>
-        <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} style={{ background: "none", border: "none" }}>
+        <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} style={{ background: "none", border: "none" }}>
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
       {open && (
-        <nav className="md:hidden border-t bd-line px-5 py-4 flex flex-col gap-4 bg-paper">
+        <nav className="menu-drop md:hidden border-t bd-line px-5 py-4 flex flex-col gap-4 bg-paper">
           {LINKS.map(([to, label]) => (
             <NavLink key={to} to={to} end={to === "/"} onClick={() => setOpen(false)} className="navlink no-underline text-left">
               {label}

@@ -1,8 +1,31 @@
+import { useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { POSTS } from "../data/content.jsx";
 import { Eyebrow, CTABand } from "../components/Shared.jsx";
 import usePageTitle from "../components/usePageTitle.js";
+import { SITE_URL, SITE_NAME } from "../seo.js";
+
+// BlogPosting structured data so articles are eligible for rich results.
+function useArticleSchema(post) {
+  useEffect(() => {
+    if (!post) return;
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: post.date,
+      url: `${SITE_URL}/insights/${post.slug}`,
+      author: { "@type": "Organization", name: SITE_NAME },
+      publisher: { "@type": "Organization", name: SITE_NAME },
+    });
+    document.head.appendChild(el);
+    return () => el.remove();
+  }, [post]);
+}
 
 // Inline markup: **bold** and *italic*.
 function Inline({ text }) {
@@ -42,6 +65,7 @@ export default function Article() {
     idx === -1 ? undefined : POSTS[idx].title,
     idx === -1 ? undefined : POSTS[idx].excerpt
   );
+  useArticleSchema(idx === -1 ? null : POSTS[idx]);
   if (idx === -1) return <Navigate to="/insights" replace />;
   const post = POSTS[idx];
   const prev = POSTS[(idx + POSTS.length - 1) % POSTS.length];

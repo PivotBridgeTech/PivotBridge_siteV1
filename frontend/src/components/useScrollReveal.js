@@ -10,7 +10,16 @@ export default function useScrollReveal(key) {
     if (reduce || !("IntersectionObserver" in window)) return;
 
     document.body.classList.add("reveal-ready");
-    const els = document.querySelectorAll(".reveal:not(.reveal-in)");
+    const els = [...document.querySelectorAll(".reveal:not(.reveal-in)")].filter((el) => {
+      // If the user scrolled past an element before the observer armed
+      // (fast scroll on slow networks), reveal it instantly instead of
+      // leaving it hidden above the viewport.
+      if (el.getBoundingClientRect().bottom < 0) {
+        el.classList.add("reveal-in");
+        return false;
+      }
+      return true;
+    });
     if (!els.length) return;
 
     const io = new IntersectionObserver(

@@ -22,10 +22,15 @@ export default function ChatWidget() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const logRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (logRef.current) logRef.current.scrollTop = logRef.current.scrollHeight;
   }, [messages, sending, open]);
+
+  useEffect(() => {
+    if (open) inputRef.current?.focus();
+  }, [open]);
 
   const send = async (text) => {
     const content = (text ?? input).trim();
@@ -120,6 +125,7 @@ export default function ChatWidget() {
 
           <form onSubmit={onSubmit} className="border-t bd-line p-3 flex gap-2">
             <input
+              ref={inputRef}
               className="field rounded-md px-3 py-2 text-sm flex-1"
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -130,7 +136,7 @@ export default function ChatWidget() {
             <button
               type="submit"
               disabled={sending || !input.trim()}
-              className="btn-primary rounded-md px-3.5 inline-flex items-center justify-center"
+              className="btn-primary icon-btn rounded-md px-3.5 inline-flex items-center justify-center"
               aria-label="Send message"
               style={{ opacity: sending || !input.trim() ? 0.6 : 1 }}
             >
@@ -142,9 +148,10 @@ export default function ChatWidget() {
 
       <button
         onClick={() => setOpen(!open)}
-        className="btn-primary rounded-full inline-flex items-center justify-center"
+        className="btn-primary icon-btn rounded-full inline-flex items-center justify-center"
         style={{ width: 52, height: 52, boxShadow: "0 10px 28px -10px rgba(46,102,71,0.6)" }}
         aria-label={open ? "Close chat" : "Chat with us"}
+        aria-expanded={open}
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}
       </button>

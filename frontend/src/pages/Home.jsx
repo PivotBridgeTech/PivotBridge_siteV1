@@ -48,7 +48,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block rise rise-4" aria-hidden="false">
+            <div className="hidden lg:block rise rise-4">
               <HeroGraphic />
             </div>
           </div>

@@ -14,7 +14,7 @@ export default function NotFound() {
         <p className="c-steel mt-4 max-w-md mx-auto">
           The link may be old or mistyped. Everything we offer is one click from the home page.
         </p>
-        <Link to="/" className="btn-primary inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-md mt-8 no-underline">
+        <Link to="/" className="btn-primary btn-back inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-md mt-8 no-underline">
           <ArrowLeft size={17} /> Back to home
         </Link>
       </div>

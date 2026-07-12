@@ -78,8 +78,9 @@ frontend/src/data/content.jsx) and steers visitors to the contact form.
 The key never reaches the browser; the frontend talks only to /api/chat.
 Rate limited to 30 messages per IP per hour. Leave the key blank to
 disable — the widget shows a friendly fallback pointing at the form.
-Model is set in backend/app/chat.py (claude-opus-4-8; switch to
-claude-haiku-4-5 there if you want cheaper, faster replies).
+Model is set via CHAT_MODEL in backend/.env — defaults to claude-haiku-4-5,
+which keeps the public endpoint cheap and fast; set claude-opus-4-8 for
+richer replies at higher cost.
 
 ## Spam protection (built in)
 

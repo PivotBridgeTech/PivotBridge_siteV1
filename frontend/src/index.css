@@ -49,9 +49,12 @@ body { background: var(--paper); color: var(--ink); font-family: 'Manrope', syst
 .btn-primary:active { transform: translateY(0); }
 .btn-ghost { color: var(--ink); border: 1px solid var(--ink); background: none; cursor: pointer; transition: background .2s ease, color .2s ease; }
 .btn-ghost:hover { background: var(--ink); color: var(--paper); }
-/* Trailing icons slide on hover */
+/* Icons slide on hover. Trailing arrows nudge right by default;
+   .btn-back reverses the direction; .icon-btn (icon-only) stays put. */
 .btn-primary svg, .btn-ghost svg { transition: transform .2s ease; }
 .btn-primary:hover svg, .btn-ghost:hover svg { transform: translateX(3px); }
+.btn-back.btn-primary:hover svg, .btn-back.btn-ghost:hover svg { transform: translateX(-3px); }
+.icon-btn.btn-primary:hover svg, .icon-btn.btn-ghost:hover svg { transform: none; }
 
 /* Cards */
 .card { background: #fff; border: 1px solid var(--line); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
@@ -68,6 +71,13 @@ a:hover .logo-mark { transform: rotate(180deg); }
 /* Sticky nav gains depth once the page scrolls */
 .nav-shell { transition: box-shadow .25s ease, background .25s ease; }
 .nav-shell.nav-scrolled { box-shadow: 0 8px 30px -16px rgba(28, 43, 34, 0.25); background: rgba(247,249,246,0.92); }
+
+/* Mobile menu slides down instead of popping in */
+.menu-drop { animation: menuDrop .22s ease-out; transform-origin: top; }
+@keyframes menuDrop {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* Initial load rise (above-the-fold hero) */
 .rise { opacity: 0; transform: translateY(14px); animation: rise .7s ease-out forwards; }

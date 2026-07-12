@@ -9,7 +9,6 @@ from .ratelimit import RateLimiter
 
 router = APIRouter()
 
-MODEL = "claude-opus-4-8"
 MAX_REPLY_TOKENS = 600
 MAX_HISTORY = 20  # most recent messages forwarded to the model
 
@@ -117,7 +116,7 @@ def chat(req: ChatRequest, request: Request):
 
     try:
         response = _get_client().messages.create(
-            model=MODEL,
+            model=settings.chat_model,
             max_tokens=MAX_REPLY_TOKENS,
             system=[{
                 "type": "text",

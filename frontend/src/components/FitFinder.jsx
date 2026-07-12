@@ -24,7 +24,7 @@ export default function FitFinder() {
         ))}
       </div>
       {rec && (
-        <div className="mt-5 rounded-md p-5 flex flex-col sm:flex-row sm:items-center gap-4" style={{ background: "rgba(46,102,71,0.06)", border: "1px solid rgba(46,102,71,0.3)" }}>
+        <div key={rec.slug} className="rise mt-5 rounded-md p-5 flex flex-col sm:flex-row sm:items-center gap-4" style={{ background: "rgba(46,102,71,0.06)", border: "1px solid rgba(46,102,71,0.3)" }}>
           <div className="flex items-center gap-3 flex-1">
             <span className="inline-flex items-center justify-center w-10 h-10 rounded-md shrink-0" style={{ background: "rgba(46,102,71,0.12)" }}>
               <rec.icon size={20} className="c-pine" />
