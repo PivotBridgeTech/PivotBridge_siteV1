@@ -6,7 +6,7 @@ const MOSS = "#52B788";
 
 export function LogoMark({ size = 34 }) {
   return (
-    <svg width={size} height={size} viewBox="21 20 70 70" aria-hidden="true">
+    <svg className="logo-mark" width={size} height={size} viewBox="21 20 70 70" aria-hidden="true" style={{ transformOrigin: "56px 55px" }}>
       <rect x="28" y="20" width="9" height="38" rx="4.5" fill={DARK} />
       <circle cx="58" cy="42" r="13" fill={DARK} />
       <rect x="75" y="52" width="9" height="38" rx="4.5" fill={MOSS} />

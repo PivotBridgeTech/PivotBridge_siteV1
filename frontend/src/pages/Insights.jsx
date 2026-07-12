@@ -15,11 +15,11 @@ export default function Insights() {
       />
       <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24">
         <div className="grid md:grid-cols-3 gap-4">
-          {POSTS.map((p) => (
+          {POSTS.map((p, i) => (
             <Link
               key={p.slug}
               to={`/insights/${p.slug}`}
-              className="card rounded-lg p-6 md:p-7 flex flex-col no-underline"
+              className={`card reveal reveal-d${(i % 3) + 1} rounded-lg p-6 md:p-7 flex flex-col no-underline`}
               style={{ color: "var(--ink)" }}
             >
               <div className="flex items-center justify-between">

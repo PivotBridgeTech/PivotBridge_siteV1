@@ -13,17 +13,19 @@ import Insights from "./pages/Insights.jsx";
 import Article from "./pages/Article.jsx";
 import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import useScrollReveal from "./components/useScrollReveal.js";
 
-function ScrollToTop() {
+function RouteWatcher() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo({ top: 0 }); }, [pathname]);
+  useScrollReveal(pathname);
   return null;
 }
 
 export default function App() {
   return (
     <div className="min-h-screen">
-      <ScrollToTop />
+      <RouteWatcher />
       <Nav />
       <main>
         <Routes>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo.jsx";
@@ -10,8 +10,17 @@ const LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b bd-line" style={{ background: "rgba(247,249,246,0.85)", backdropFilter: "blur(12px)" }}>
+    <header className={`nav-shell sticky top-0 z-50 border-b bd-line ${scrolled ? "nav-scrolled" : ""}`} style={{ background: "rgba(247,249,246,0.85)", backdropFilter: "blur(12px)" }}>
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
         <Link to="/" className="no-underline inline-flex items-center" aria-label="Pivot Bridge Technology — home">
           <Logo size={38} />

@@ -13,7 +13,7 @@ export default function Work() {
       />
       <section className="max-w-6xl mx-auto px-5 pb-16 md:pb-24 flex flex-col gap-4">
         {CASES.map((c) => (
-          <article key={c.title} className="card-static rounded-lg p-6 md:p-8">
+          <article key={c.title} className="card-static reveal rounded-lg p-6 md:p-8">
             <p className="f-mono text-xs c-pine tracking-widest">{c.industry}</p>
             <h2 className="f-display font-bold text-2xl mt-2">{c.title}</h2>
             <div className="grid md:grid-cols-3 gap-5 mt-6">

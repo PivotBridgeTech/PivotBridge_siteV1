@@ -5,6 +5,7 @@
   --sage: #94BFA2; --steel: #5D6E63; --line: rgba(28, 43, 34, 0.12);
 }
 
+html { scroll-behavior: smooth; }
 body { background: var(--paper); color: var(--ink); font-family: 'Manrope', system-ui, sans-serif; }
 .f-display { font-family: 'Manrope', system-ui, sans-serif; }
 .f-mono { font-family: 'IBM Plex Mono', monospace; }
@@ -12,36 +13,87 @@ body { background: var(--paper); color: var(--ink); font-family: 'Manrope', syst
 .bg-ink { background: var(--ink); } .bg-paper { background: var(--paper); }
 .bd-line { border-color: var(--line); }
 
+/* Hero / dark background glows — slowly drifting aurora */
 .hero-glow {
   background:
     radial-gradient(55% 45% at 50% -5%, rgba(46,102,71,0.14), transparent 70%),
     radial-gradient(35% 30% at 85% 15%, rgba(148,191,162,0.18), transparent 70%);
+  background-size: 170% 170%;
+  background-position: 0% 0%;
+  animation: aurora 22s ease-in-out infinite alternate;
 }
 .dark-glow {
   background:
     radial-gradient(50% 40% at 15% 0%, rgba(46,102,71,0.25), transparent 70%),
     radial-gradient(40% 35% at 90% 100%, rgba(148,191,162,0.10), transparent 70%);
+  background-size: 160% 160%;
+  background-position: 0% 0%;
+  animation: aurora 26s ease-in-out infinite alternate;
 }
-.btn-primary { background: var(--pine); color: #fff; border: none; cursor: pointer; transition: background .2s ease, transform .2s ease; }
-.btn-primary:hover { background: var(--pine-deep); transform: translateY(-1px); }
+@keyframes aurora {
+  to { background-position: 100% 40%; }
+}
+
+/* Buttons */
+.btn-primary { background: var(--pine); color: #fff; border: none; cursor: pointer; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+.btn-primary:hover { background: var(--pine-deep); transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(35, 78, 54, 0.6); }
+.btn-primary:active { transform: translateY(0); }
 .btn-ghost { color: var(--ink); border: 1px solid var(--ink); background: none; cursor: pointer; transition: background .2s ease, color .2s ease; }
 .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+/* Trailing icons slide on hover */
+.btn-primary svg, .btn-ghost svg { transition: transform .2s ease; }
+.btn-primary:hover svg, .btn-ghost:hover svg { transform: translateX(3px); }
+
+/* Cards */
 .card { background: #fff; border: 1px solid var(--line); transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
-.card:hover { border-color: var(--pine); transform: translateY(-3px); box-shadow: 0 12px 32px -16px rgba(46, 102, 71, 0.35); }
+.card:hover { border-color: var(--pine); transform: translateY(-4px); box-shadow: 0 18px 40px -20px rgba(46, 102, 71, 0.4); }
+.card svg { transition: transform .25s ease; }
+.card:hover .card-arrow { transform: translateX(3px); }
 .card-static { background: #fff; border: 1px solid var(--line); }
+
+/* Brand mark: rotating it 180° maps P→B — the "pivot" made literal */
+.logo-mark { transition: transform .7s cubic-bezier(.65, 0, .35, 1); }
+a:hover .logo-mark { transform: rotate(180deg); }
+
+/* Sticky nav gains depth once the page scrolls */
+.nav-shell { transition: box-shadow .25s ease, background .25s ease; }
+.nav-shell.nav-scrolled { box-shadow: 0 8px 30px -16px rgba(28, 43, 34, 0.25); background: rgba(247,249,246,0.92); }
+
+/* Initial load rise (above-the-fold hero) */
 .rise { opacity: 0; transform: translateY(14px); animation: rise .7s ease-out forwards; }
 .rise-1 { animation-delay: .05s } .rise-2 { animation-delay: .18s } .rise-3 { animation-delay: .3s } .rise-4 { animation-delay: .42s }
 @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+/* Scroll-reveal: hidden only once JS marks the body ready (no-JS shows all) */
+.reveal { transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); }
+body.reveal-ready .reveal { opacity: 0; transform: translateY(22px); }
+body.reveal-ready .reveal.reveal-in { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .08s; } .reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; } .reveal-d4 { transition-delay: .32s; }
+
+/* Forms */
 .field { background: #fff; border: 1px solid var(--line); color: var(--ink); transition: border-color .2s ease, box-shadow .2s ease; }
 .field:focus { outline: none; border-color: var(--pine); box-shadow: 0 0 0 3px rgba(46,102,71,.15); }
 a:focus-visible, button:focus-visible, .field:focus-visible { outline: 2px solid var(--pine); outline-offset: 2px; }
-.navlink { color: var(--steel); transition: color .2s; background: none; border: none; cursor: pointer; font-size: 0.875rem; padding: 0; font-family: inherit; text-decoration: none; }
+.navlink { color: var(--steel); transition: color .2s; background: none; border: none; cursor: pointer; font-size: 0.875rem; padding: 0; font-family: inherit; text-decoration: none; position: relative; }
 .navlink:hover, .navlink.active { color: var(--pine); }
-.painbtn { transition: border-color .2s ease, background .2s ease; }
-.painbtn:hover { border-color: var(--pine); }
+/* Animated underline on desktop nav links */
+.navlink::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  background: var(--pine); border-radius: 2px; transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+.navlink:hover::after, .navlink.active::after { transform: scaleX(1); }
+.painbtn { transition: border-color .2s ease, background .2s ease, transform .2s ease; }
+.painbtn:hover { border-color: var(--pine); transform: translateY(-1px); }
 .painbtn.on { border-color: var(--pine); background: rgba(46,102,71,0.06); }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .rise { animation: none; opacity: 1; transform: none; }
+  .hero-glow, .dark-glow { animation: none; }
   .card:hover, .btn-primary:hover { transform: none; }
+  .btn-primary:hover svg, .btn-ghost:hover svg, .card:hover .card-arrow { transform: none; }
+  a:hover .logo-mark { transform: none; }
+  .reveal, body.reveal-ready .reveal { opacity: 1; transform: none; transition: none; }
 }

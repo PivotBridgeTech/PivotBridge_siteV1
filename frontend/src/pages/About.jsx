@@ -51,7 +51,7 @@ export default function About() {
         </h2>
         <div className="flex flex-col gap-4 mt-8">
           {TEAM_STATEMENTS.map((p) => (
-            <article key={p.name} className="card-static rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-6">
+            <article key={p.name} className="card-static reveal rounded-lg p-6 md:p-8 grid md:grid-cols-12 gap-6">
               <div className="md:col-span-3 flex md:flex-col items-center md:items-start gap-3.5">
                 <span
                   className="inline-flex items-center justify-center rounded-full f-display font-bold text-base shrink-0"

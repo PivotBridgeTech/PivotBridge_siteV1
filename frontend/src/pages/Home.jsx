@@ -59,13 +59,15 @@ export default function Home() {
       </section>
 
       <section className="max-w-6xl mx-auto px-5 py-12 md:py-16">
-        <Eyebrow>Services</Eyebrow>
-        <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-xl">
-          Four ways we take work off your plate.
-        </h2>
+        <div className="reveal">
+          <Eyebrow>Services</Eyebrow>
+          <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-xl">
+            Four ways we take work off your plate.
+          </h2>
+        </div>
         <div className="grid sm:grid-cols-2 gap-4 mt-8">
-          {SERVICES.map(({ slug, icon: Icon, tag, title, short }) => (
-            <Link key={slug} to={`/services/${slug}`} className="card rounded-lg p-6 md:p-8 text-left no-underline" style={{ color: "var(--ink)" }}>
+          {SERVICES.map(({ slug, icon: Icon, tag, title, short }, i) => (
+            <Link key={slug} to={`/services/${slug}`} className={`card reveal reveal-d${i % 2 === 1 ? 2 : 1} rounded-lg p-6 md:p-8 text-left no-underline`} style={{ color: "var(--ink)" }}>
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center justify-center w-11 h-11 rounded-md" style={{ background: "rgba(46,102,71,0.08)" }}>
                   <Icon size={22} className="c-pine" />
@@ -75,23 +77,25 @@ export default function Home() {
               <h3 className="f-display font-bold text-xl mt-5">{title}</h3>
               <p className="c-steel text-sm mt-2" style={{ lineHeight: 1.65 }}>{short}</p>
               <span className="inline-flex items-center gap-1.5 text-sm font-semibold c-pine mt-4">
-                Learn more <ChevronRight size={16} />
+                Learn more <ChevronRight size={16} className="card-arrow" />
               </span>
             </Link>
           ))}
         </div>
-        <div className="mt-6"><FitFinder /></div>
+        <div className="mt-6 reveal"><FitFinder /></div>
       </section>
 
       <section className="border-t bd-line" style={{ background: "#ECF2ED" }}>
         <div className="max-w-6xl mx-auto px-5 py-12 md:py-16">
-          <Eyebrow>Industries we serve</Eyebrow>
-          <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-2xl">
-            Built for markets that run on servers.
-          </h2>
+          <div className="reveal">
+            <Eyebrow>Industries we serve</Eyebrow>
+            <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-2xl">
+              Built for markets that run on servers.
+            </h2>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-            {INDUSTRIES.filter(({ name }) => HOME_INDUSTRY_NAMES.includes(name)).map(({ icon: Icon, name, pain }) => (
-              <div key={name} className="card-static rounded-lg p-6">
+            {INDUSTRIES.filter(({ name }) => HOME_INDUSTRY_NAMES.includes(name)).map(({ icon: Icon, name, pain }, i) => (
+              <div key={name} className={`card-static reveal reveal-d${(i % 4) + 1} rounded-lg p-6`}>
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-md" style={{ background: "rgba(46,102,71,0.08)" }}>
                     <Icon size={20} className="c-pine" />
@@ -102,21 +106,25 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <Link to="/industries" className="btn-ghost inline-flex items-center gap-2 font-semibold px-5 py-2.5 rounded-md mt-6 no-underline">
-            See how we work in your industry <ArrowRight size={16} />
-          </Link>
+          <div className="reveal mt-6">
+            <Link to="/industries" className="btn-ghost inline-flex items-center gap-2 font-semibold px-5 py-2.5 rounded-md no-underline">
+              See how we work in your industry <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-5 py-12 md:py-20">
-        <Eyebrow>Start a project</Eyebrow>
-        <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-2xl">
-          Tell us the bottleneck. We'll bring the plan.
-        </h2>
-        <p className="c-steel mt-4 max-w-xl">
-          Every project starts with a free 30-minute consultation. No pitch deck, no jargon — just a straight conversation about what's slowing you down and what it would take to fix it.
-        </p>
-        <div className="card-static rounded-lg p-6 md:p-8 mt-8 max-w-2xl"><ContactForm /></div>
+        <div className="reveal">
+          <Eyebrow>Start a project</Eyebrow>
+          <h2 className="f-display font-bold text-3xl md:text-4xl tracking-tight mt-3 max-w-2xl">
+            Tell us the bottleneck. We'll bring the plan.
+          </h2>
+          <p className="c-steel mt-4 max-w-xl">
+            Every project starts with a free 30-minute consultation. No pitch deck, no jargon — just a straight conversation about what's slowing you down and what it would take to fix it.
+          </p>
+        </div>
+        <div className="card-static rounded-lg p-6 md:p-8 mt-8 max-w-2xl reveal"><ContactForm /></div>
       </section>
     </>
   );
